@@ -26,8 +26,6 @@ exports.login = async (req, res) => {
 exports.refreshToken = async (req, res) => {
   const { refreshToken } = req.body;
   try {
-    
-
     const newAccessToken = await authService.refreshAccessToken(refreshToken);
     res.status(200).json({ accessToken: newAccessToken });
   } catch (error) {
@@ -37,12 +35,17 @@ exports.refreshToken = async (req, res) => {
 };
 
 exports.logout = async (req, res) => {
-  const { refreshToken } = req.body;
+  const { token: refreshToken } = req.body; // Accept 'token' as refreshToken
+
+  if (!refreshToken) {
+    return res.status(400).json({ message: "Refresh token is missing" });
+  }
+
   try {
     const response = await authService.logoutUser(refreshToken);
     res.status(200).json(response);
   } catch (error) {
-    logger.error(`Logout failed: ${error.message}`);
+    console.error(`Logout failed: ${error.message}`);
     res.status(400).json({ message: error.message });
   }
 };

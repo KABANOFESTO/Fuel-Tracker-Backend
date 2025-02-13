@@ -20,18 +20,18 @@ Content-Type: application/json
 
 ###
 GET http://localhost:5000/api/auth/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ2MTU1MCwiZXhwIjoxNzM5NDYxNTgwfQ.jxzDWeP_FnGGvatNZb8nC7cjK6ZKjoGPFFC8FYRSd30
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ2MzA5NCwiZXhwIjoxNzM5NDYzMTI0fQ.5pQhO2HQj53hgkVcuwggSjU3AX66oeAgpcTmQhcBPMI
 ###
 POST http://localhost:5000/api/auth/refresh-token
 Content-Type: application/json
 
 {
-    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzM5NDYxNTE0LCJleHAiOjE3Mzk0NjIxMTR9.QUb04C8zzHWBVZBdgoxtY4j5wz_wfWQzMWzMrq4n24k"
+    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzM5NDYzMzQ0LCJleHAiOjE3Mzk0NjM5NDR9.h14henVDeFZxtigQqtG3np6OVY9ghHn0zwRh-4XWig4"
 }
 ###
 DELETE http://localhost:5000/api/auth/logout
 Content-Type: application/json
 
 {
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ1MzkwMiwiZXhwIjoxNzQwMDU4NzAyfQ.oYJCCDMOXGKJK0yPiiJfU0Ou8wdqORoZZOsiC_3Oxuw"
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzM5NDYzMzQ0LCJleHAiOjE3Mzk0NjM5NDR9.h14henVDeFZxtigQqtG3np6OVY9ghHn0zwRh-4XWig4"
 }

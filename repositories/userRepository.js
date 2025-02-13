@@ -44,3 +44,11 @@ exports.getUsersByRole = async (role) => {
     attributes: { exclude: ["password"] },
   });
 };
+
+// Get available roles
+exports.getAvailableRoles = async () => {
+  return await User.findAll({
+    attributes: ["role"],
+    group: ["role"],
+  });
+};

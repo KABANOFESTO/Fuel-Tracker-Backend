@@ -1,0 +1,43 @@
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ2ODQzMywiZXhwIjoxNzM5NDY4NDYzfQ.F9-XqSG_4Jpr99trZ3siH5fqBOhZgEV809UxRPWuApQ
+Content-Type: application/json
+
+{
+    "name": "user1",
+    "email": "user1@gmail.com",
+    "password": "test",
+    "role": "Admin"
+}
+
+### Login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "data1@gmail.com",
+    "password": "test"
+}
+
+### Get all users
+GET http://localhost:5000/api/users/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NDc0NjYwLCJleHAiOjE3Mzk0NzY0NjB9.ZliJudaGbdxM1KCr8cmBF1fCrqAzQFcEmG3eL5QJMs8
+
+### Get user by ID
+GET http://localhost:5000/api/users/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NDc0NjYwLCJleHAiOjE3Mzk0NzY0NjB9.ZliJudaGbdxM1KCr8cmBF1fCrqAzQFcEmG3eL5QJMs8
+
+### Update user details
+PUT http://localhost:5000/api/users/update/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ2ODgzOSwiZXhwIjoxNzM5NDY4ODY5fQ.LcHhnHWSolcsRwK2h-Qh9xVvJsq-6HV6vsz-L1AnzL0
+
+{
+    "name": "updatedUser",
+    "email": "updateduser@gmail.com",
+    "role": "Worker"
+}
+
+### Delete user
+DELETE http://localhost:5000/api/users/delete/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ2OTMxOCwiZXhwIjoxNzM5NDY5MzQ4fQ.qo5LSvMb5QZ8Uem8nlVQLWH5H0_HY3fNcgtjHFKQtNA

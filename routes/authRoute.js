@@ -9,5 +9,6 @@ router.post("/register", AuthController.register);
 router.post("/login", AuthController.login);
 // Protect this route with middleware
 router.get("/users", authMiddleware, userController.getAllUsers);
-
+router.post("/refresh-token", AuthController.refreshToken);
+router.delete("/logout", AuthController.logout);
 module.exports = router;

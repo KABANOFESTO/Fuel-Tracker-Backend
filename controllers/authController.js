@@ -23,3 +23,26 @@ exports.login = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+exports.refreshToken = async (req, res) => {
+  const { refreshToken } = req.body;
+  try {
+    
+
+    const newAccessToken = await authService.refreshAccessToken(refreshToken);
+    res.status(200).json({ accessToken: newAccessToken });
+  } catch (error) {
+    logger.error(`Failed to refresh token: ${error.message}`);
+    res.status(400).json({ message: error.message });
+  }
+};
+
+exports.logout = async (req, res) => {
+  const { refreshToken } = req.body;
+  try {
+    const response = await authService.logoutUser(refreshToken);
+    res.status(200).json(response);
+  } catch (error) {
+    logger.error(`Logout failed: ${error.message}`);
+    res.status(400).json({ message: error.message });
+  }
+};

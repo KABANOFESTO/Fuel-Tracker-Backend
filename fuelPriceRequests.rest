@@ -3,27 +3,27 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "data1@gmail.com",
+    "email": "add@gmail.com",
     "password": "test"
 }
 ### Get all fuel prices
 GET http://localhost:5000/api/fuel-prices/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NzM3LCJleHAiOjE3Mzk1NDY1Mzd9.hO9fqMjUSXDAso-kYFcTh9RJeBCI3SSq9c094cUzVrI
 
 
 ### Get fuel prices for a specific station
 GET http://localhost:5000/api/fuel-prices/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NzM3LCJleHAiOjE3Mzk1NDY1Mzd9.hO9fqMjUSXDAso-kYFcTh9RJeBCI3SSq9c094cUzVrI
 
 
 ### Set fuel price for a station
 POST http://localhost:5000/api/fuel-prices/setPrice
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ1Njc5LCJleHAiOjE3Mzk1NDc0Nzl9.5g6vs7ssN2KdCu_LNIbl8EE9cck_K2fsMY1tRTRAM3g
 
 {
-  "stationId": 3,
-  "fuelType": "Petrol",
+  "stationId": 5,
+  "fuelType": "petrol",
   "price": 1500
 }
 
@@ -31,7 +31,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 ### Update fuel price
 PUT http://localhost:5000/api/fuel-prices/update/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NzM3LCJleHAiOjE3Mzk1NDY1Mzd9.hO9fqMjUSXDAso-kYFcTh9RJeBCI3SSq9c094cUzVrI
 
 {
   "fuelType": "Diesel",
@@ -41,4 +41,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 
 ### Delete fuel price
 DELETE http://localhost:5000/api/fuel-prices/delete/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NzM3LCJleHAiOjE3Mzk1NDY1Mzd9.hO9fqMjUSXDAso-kYFcTh9RJeBCI3SSq9c094cUzVrI

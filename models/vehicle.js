@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       plateNumber: DataTypes.STRING,
       model: DataTypes.STRING,
-      ownerName: DataTypes.STRING,
+      fuelType: DataTypes.STRING,
     },
     {
       sequelize,

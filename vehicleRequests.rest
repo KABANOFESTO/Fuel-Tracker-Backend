@@ -1,0 +1,53 @@
+### Login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "add@gmail.com",
+    "password": "test"
+}
+
+### Get all vehicles
+GET http://localhost:5000/api/vehicles/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0ODg4LCJleHAiOjE3Mzk1NDY2ODh9.T1gvU-PvMqgrQULmt4DA151CVP3Nbs2g7O_fugO_yEI
+
+
+### Get a single vehicle by ID
+GET http://localhost:5000/api/vehicles/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQzODc0LCJleHAiOjE3Mzk1NDU2NzR9.osnSNqxofqcG56cseNoIdIwbwTL_sBnzs5ZKimAQsw4
+
+
+### Get vehicle details by plate number
+GET http://localhost:5000/api/vehicles/plate/RAF660B
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0ODg4LCJleHAiOjE3Mzk1NDY2ODh9.T1gvU-PvMqgrQULmt4DA151CVP3Nbs2g7O_fugO_yEI
+
+
+
+### Register a new vehicle
+POST http://localhost:5000/api/vehicles/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQzODc0LCJleHAiOjE3Mzk1NDU2NzR9.osnSNqxofqcG56cseNoIdIwbwTL_sBnzs5ZKimAQsw4
+
+{
+  "plateNumber": "RAF660B",
+  "model": "Toyota Corolla",
+  "fuelType": "Petrol"
+}
+
+
+### Update vehicle details
+PUT http://localhost:5000/api/vehicles/update/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTIyNjYxLCJleHAiOjE3Mzk1MjQ0NjF9.scvWL_63SlFGdfFeYaT47HX_3i0P938t7uukWt8D_zI
+
+{
+  "plateNumber": "RAC670D",
+  "model": "Honda Civic",
+  "fuelType": "Diesel"
+}
+
+
+### Delete a vehicle
+DELETE http://localhost:5000/api/vehicles/delete/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTIyNjYxLCJleHAiOjE3Mzk1MjQ0NjF9.scvWL_63SlFGdfFeYaT47HX_3i0P938t7uukWt8D_zI
+

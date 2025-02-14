@@ -2,8 +2,8 @@
 const { RefreshToken } = require("../models");
 
 // Create a new refresh token
-exports.createRefreshToken = async ({ userId, token }) => {
-  return await RefreshToken.create({ userId, token });
+exports.createRefreshToken = async ({ userId, token, expiresAt }) => {
+  return await RefreshToken.create({ userId, token, expiresAt });
 };
 
 // Find refresh token by token string

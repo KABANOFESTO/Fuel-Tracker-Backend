@@ -37,6 +37,9 @@ exports.loginUser = async ({ email, password }) => {
   await refreshTokenRepository.createRefreshToken({
     userId: user.id,
     token: refreshToken,
+    expiresAt: new Date(
+      Date.now() + parseInt(process.env.JWT_REFRESH_EXPIRES_IN) * 1000
+    ),
   });
 
   console.log("JWT_EXPIRES_IN:", process.env.JWT_EXPIRES_IN);

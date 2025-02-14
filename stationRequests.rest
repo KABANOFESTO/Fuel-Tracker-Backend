@@ -21,17 +21,16 @@ Content-Type: application/json
 
 ### Get all users
 GET http://localhost:5000/api/stations/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NDc0MjQ0LCJleHAiOjE3Mzk0NzYwNDR9.mBnQhRSVkGVea_nt_NmyKkTAOhVYLeglWpZfwX2gqfM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTEyMzAzLCJleHAiOjE3Mzk1MTQxMDN9.UKPw10Ipin6VoM1q1wPmaPPdf3wTay2WMmWHftobJyA
 
 ### Get user by ID
-GET http://localhost:5000/api/stations/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NDc0MjQ0LCJleHAiOjE3Mzk0NzYwNDR9.mBnQhRSVkGVea_nt_NmyKkTAOhVYLeglWpZfwX2gqfM
+GET http://localhost:5000/api/stations/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTEzMDk1LCJleHAiOjE3Mzk1MTQ4OTV9._3FDKOLgPPfriF67CTOLxhoBHY9iia9IZkvvL7bgdpc
 
-### Update user details
+### Update Station details
 PUT http://localhost:5000/api/stations/update/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NDcyOTY3LCJleHAiOjE3Mzk0NzQ3Njd9.d8Gd6v-OyCaENE4_5iLfcG06OG_j5UId0PhC1jlQM5g
-
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTEzMDk1LCJleHAiOjE3Mzk1MTQ4OTV9._3FDKOLgPPfriF67CTOLxhoBHY9iia9IZkvvL7bgdpc
 
 {
     "name": "updatedStation",
@@ -39,6 +38,7 @@ Content-Type: application/json
     "userId": 6
 }
 
-### Delete user
-DELETE http://localhost:5000/api/users/delete/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IldvcmtlciIsImlhdCI6MTczOTQ2OTMxOCwiZXhwIjoxNzM5NDY5MzQ4fQ.qo5LSvMb5QZ8Uem8nlVQLWH5H0_HY3fNcgtjHFKQtNA
+
+### Delete Station
+DELETE http://localhost:5000/api/stations/delete/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTEzMDk1LCJleHAiOjE3Mzk1MTQ4OTV9._3FDKOLgPPfriF67CTOLxhoBHY9iia9IZkvvL7bgdpc

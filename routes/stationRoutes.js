@@ -17,6 +17,6 @@ router.post("/create", authMiddleware, stationController.createStation);
 router.put("/update/:id", authMiddleware, stationController.updateStation);
 
 // Delete a station by ID
-router.delete("/:id", authMiddleware, stationController.deleteStation);
+router.delete("/delete/:id", authMiddleware, stationController.deleteStation);
 
 module.exports = router;

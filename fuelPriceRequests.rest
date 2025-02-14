@@ -1,0 +1,44 @@
+### Login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "data1@gmail.com",
+    "password": "test"
+}
+### Get all fuel prices
+GET http://localhost:5000/api/fuel-prices/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+
+
+### Get fuel prices for a specific station
+GET http://localhost:5000/api/fuel-prices/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+
+
+### Set fuel price for a station
+POST http://localhost:5000/api/fuel-prices/setPrice
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+
+{
+  "stationId": 3,
+  "fuelType": "Petrol",
+  "price": 1500
+}
+
+
+### Update fuel price
+PUT http://localhost:5000/api/fuel-prices/update/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs
+
+{
+  "fuelType": "Diesel",
+  "price": 2000
+}
+
+
+### Delete fuel price
+DELETE http://localhost:5000/api/fuel-prices/delete/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTE5MDA2LCJleHAiOjE3Mzk1MjA4MDZ9.at0ikC6K_Jhl8_uCNGpPpSKlYWUzqFAoLI5_0xhwrMs

@@ -1,12 +1,11 @@
 ### Register a new user
 POST http://localhost:5000/api/stations/create
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0MDU1LCJleHAiOjE3Mzk1NDU4NTV9.bU4iXvODX87FxxMhn2wam4reIp9JrO6SWWZRIkqG3Z0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
 Content-Type: application/json
 
 {
   "name": "merez Gas Station",
-  "location": "Kigali, Rwanda",
-  "userId": 4
+  "location": "Kigali, Rwanda"
 }
 
 
@@ -15,27 +14,26 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "add@gmail.com",
-    "password": "test"
+    "email": "fab2@gmail.com",
+    "password": "Password1@"
 }
 
 ### Get all users
 GET http://localhost:5000/api/stations/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0MDU1LCJleHAiOjE3Mzk1NDU4NTV9.bU4iXvODX87FxxMhn2wam4reIp9JrO6SWWZRIkqG3Z0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
 
 ### Get user by ID
-GET http://localhost:5000/api/stations/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0MDU1LCJleHAiOjE3Mzk1NDU4NTV9.bU4iXvODX87FxxMhn2wam4reIp9JrO6SWWZRIkqG3Z0
+GET http://localhost:5000/api/stations/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
 
 ### Update Station details
-PUT http://localhost:5000/api/stations/update/5
+PUT http://localhost:5000/api/stations/update/9
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NDk5LCJleHAiOjE3Mzk1NDYyOTl9.KHnibmhH2ieA5GCJpBq9hXDkU9bvzvcJr5c7mx6W12g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
 
 {
     "name": "updatedStation",
-    "location": "muhanga, Rwanda",
-    "userId": 4
+    "location": "muhanga, Rwanda"
 }
 
 

@@ -74,6 +74,17 @@ exports.refreshAccessToken = async (refreshToken) => {
 };
 
 exports.logoutUser = async (refreshToken) => {
+  if (!refreshToken) throw new Error("Missing refresh token");
+
+  // Check if the token exists before attempting to delete
+  const tokenEntry = await refreshTokenRepository.findByToken(refreshToken);
+  if (!tokenEntry) {
+    throw new Error("Invalid or already logged-out token");
+  }
+
+  // Delete the refresh token from the database
   await refreshTokenRepository.deleteByToken(refreshToken);
+
   return { message: "Logged out successfully" };
 };
+

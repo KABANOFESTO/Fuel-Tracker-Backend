@@ -11,5 +11,8 @@ exports.setFuelPrice = async (data) => await FuelPrice.create(data);
 exports.updateFuelPrice = async (id, data) =>
   await FuelPrice.update(data, { where: { id } });
 
+exports.getFuelPriceByTypeAndStation = async (fuelType, stationId) => {
+  return await FuelPrice.findOne({ where: { fuelType, stationId } });
+};
 exports.deleteFuelPrice = async (id) =>
   await FuelPrice.destroy({ where: { id } });

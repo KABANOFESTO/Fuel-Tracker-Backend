@@ -14,8 +14,11 @@ class DriverRepository {
     return await Driver.create(driverData);
   }
 
-  static async updateDriver(id, updateData) {
-    const driver = await Driver.findByPk(id);
+  static async getDriverByLicenseNumber(licenseNumber) {
+    return await Driver.findOne({ where: { licenseNumber } });
+  }
+  static async updateDriverByLicenseNumber(licenseNumber, updateData) {
+    const driver = await Driver.findOne({ where: { licenseNumber } });
     if (!driver) return null;
     return await driver.update(updateData);
   }

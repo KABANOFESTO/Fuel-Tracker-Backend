@@ -3,33 +3,33 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "add@gmail.com",
-    "password": "test"
+    "email": "user1@gmail.com",
+    "password": "Password1@"
 }
 
 ### Get all vehicles
 GET http://localhost:5000/api/vehicles/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0ODg4LCJleHAiOjE3Mzk1NDY2ODh9.T1gvU-PvMqgrQULmt4DA151CVP3Nbs2g7O_fugO_yEI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
 
 
 ### Get a single vehicle by ID
-GET http://localhost:5000/api/vehicles/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQzODc0LCJleHAiOjE3Mzk1NDU2NzR9.osnSNqxofqcG56cseNoIdIwbwTL_sBnzs5ZKimAQsw4
+GET http://localhost:5000/api/vehicles/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU3NzUzLCJleHAiOjE3Mzk2NTk1NTN9.zXiUfYWxL37h-Ior79dW87jQvPMREKTPSZGiJNyGP9w
 
 
 ### Get vehicle details by plate number
-GET http://localhost:5000/api/vehicles/plate/RAF660B
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0ODg4LCJleHAiOjE3Mzk1NDY2ODh9.T1gvU-PvMqgrQULmt4DA151CVP3Nbs2g7O_fugO_yEI
+GET http://localhost:5000/api/vehicles/plate/RAF 660B
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
 
 
 
 ### Register a new vehicle
 POST http://localhost:5000/api/vehicles/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQzODc0LCJleHAiOjE3Mzk1NDU2NzR9.osnSNqxofqcG56cseNoIdIwbwTL_sBnzs5ZKimAQsw4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5Njg1OTM3LCJleHAiOjE3Mzk2ODc3Mzd9.FLbQy1vmlLgvU0nu8HsB4T6PiTbAXLyyCkv1vg4fkHg
 
 {
-  "plateNumber": "RAF660B",
+  "plateNumber": "RAF 660B",
   "model": "Toyota Corolla",
   "fuelType": "Petrol"
 }
@@ -48,6 +48,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 
 
 ### Delete a vehicle
-DELETE http://localhost:5000/api/vehicles/delete/1
+DELETE http://localhost:5000/api/vehicles/delete/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTIyNjYxLCJleHAiOjE3Mzk1MjQ0NjF9.scvWL_63SlFGdfFeYaT47HX_3i0P938t7uukWt8D_zI
 

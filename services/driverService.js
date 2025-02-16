@@ -1,5 +1,5 @@
 // services/driverService.js
-const DriverRepository = require("../repositories/driverRepository");
+const DriverRepository = require("../repositories/DriverRepository");
 
 class DriverService {
   static async getAllDrivers() {
@@ -13,9 +13,11 @@ class DriverService {
   static async createDriver(driverData) {
     return await DriverRepository.createDriver(driverData);
   }
-
-  static async updateDriver(id, updateData) {
-    return await DriverRepository.updateDriver(id, updateData);
+  static async updateDriver(licenseNumber, updateData) {
+    return await DriverRepository.updateDriverByLicenseNumber(
+      licenseNumber,
+      updateData
+    );
   }
 
   static async deleteDriver(id) {

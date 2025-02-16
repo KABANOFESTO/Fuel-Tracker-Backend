@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('FuelTransactions', {
+    await queryInterface.createTable("FuelTransactions", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -13,44 +13,44 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Stations',
-          key: 'id',
+          model: "Stations",
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       vehicleId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER, // Changed from VehiclePlateNumber (STRING) to vehicleId (INTEGER)
         allowNull: false,
         references: {
-          model: 'Vehicles',
-          key: 'id',
+          model: "Vehicles",
+          key: "id", // Referencing vehicleId instead of plateNumber
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       operatorId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Users',
-          key: 'id',
+          model: "Users",
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       driverId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Drivers',
-          key: 'id',
+          model: "Drivers",
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       fuel_type: {
-        type: Sequelize.ENUM('petrol', 'diesel'),
+        type: Sequelize.ENUM("petrol", "diesel"),
         allowNull: false,
       },
       total_litres: {
@@ -61,30 +61,20 @@ module.exports = {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
-      fuelPriceId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'FuelPrices',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-      }
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      },
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('FuelTransactions');
-  }
+    await queryInterface.dropTable("FuelTransactions");
+  },
 };

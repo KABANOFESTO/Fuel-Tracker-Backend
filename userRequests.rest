@@ -4,11 +4,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 Content-Type: application/json
 
 {
-    "name": "user2",
-    "email": "user2@gmail.com",
+    "name": "user1",
+    "email": "user1@gmail.com",
     "password": "Password1@",
     "role": "station_worker",
-    "stationId": 6
+    "stationId": 1
 }
 
 ### Login user
@@ -16,17 +16,17 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "add@gmail.com",
-    "password": "test"
+    "email": "user1@gmail.com",
+    "password": "Password1@"
 }
 
 ### Get all users
 GET http://localhost:5000/api/users/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA5OTQ1LCJleHAiOjE3Mzk2MTE3NDV9.q8TzzYIHwV5b-4zaym-MLulJyBSOOJsij6DQS-j-EkQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU5NTQ3LCJleHAiOjE3Mzk2NjEzNDd9.Q7mhIsl6baLRv3lBiGkX7Hb-KV9QrrQJlH0zD9h9BXc
 
 ### Get user by ID
 GET http://localhost:5000/api/users/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQzMzQ3LCJleHAiOjE3Mzk1NDUxNDd9.UlIQvP8rJGgS20swQtIPPn6Pb88YzLL-MV69vN1gvfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU5NTQ3LCJleHAiOjE3Mzk2NjEzNDd9.Q7mhIsl6baLRv3lBiGkX7Hb-KV9QrrQJlH0zD9h9BXc
 
 ### Update user details
 PUT http://localhost:5000/api/users/update/1

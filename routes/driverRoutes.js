@@ -2,12 +2,34 @@
 const express = require("express");
 const router = express.Router();
 const DriverController = require("../controllers/driverController");
-
+const authMiddleware = require("../middlewares/authMiddleware");
+const {
+  validateDriverName,
+  validateLicenseNumber,
+  validateVehicleId,
+  handleValidationErrors,
+} = require("../middlewares/driverMiddleware");
 // Driver routes
-router.get("/all", DriverController.getAllDrivers);
-router.get("/:id", DriverController.getDriverById);
-router.post("/register", DriverController.createDriver);
-router.put("/update/:id", DriverController.updateDriver);
-router.delete("/delete/:id", DriverController.deleteDriver);
+router.get("/all",authMiddleware, DriverController.getAllDrivers);
+router.get("/:id", authMiddleware,DriverController.getDriverById);
+router.post(
+  "/register",
+  validateDriverName,
+  validateLicenseNumber,
+  validateVehicleId,
+  handleValidationErrors,
+  authMiddleware,
+  DriverController.createDriver
+);
+router.put(
+  "/update/:licensenumber",
+  validateDriverName,
+  validateLicenseNumber,
+  validateVehicleId,
+  handleValidationErrors,
+  authMiddleware,
+  DriverController.updateDriver
+);
+router.delete("/delete/:id",validateLicenseNumber, DriverController.deleteDriver);
 
 module.exports = router;

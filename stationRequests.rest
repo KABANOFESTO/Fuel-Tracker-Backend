@@ -1,6 +1,6 @@
 ### Register a new user
 POST http://localhost:5000/api/stations/create
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjgzNjcwLCJleHAiOjE3Mzk2ODU0NzB9.Asm7FHWeNhwzO6F4Xqdm8UnT7-h5tmds_GWzdWKojRU
 Content-Type: application/json
 
 {
@@ -20,23 +20,23 @@ Content-Type: application/json
 
 ### Get all users
 GET http://localhost:5000/api/stations/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYzMTY2NSwiZXhwIjoxNzM5NjMzNDY1fQ.JkZcXvZ8rus7NJyWXV26SpavBIhMvyxtiY0vuHKQoE4
 
 ### Get user by ID
 GET http://localhost:5000/api/stations/6
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
 
 ### Update Station details
-PUT http://localhost:5000/api/stations/update/9
+PUT http://localhost:5000/api/stations/update/6
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYzMTY2NSwiZXhwIjoxNzM5NjMzNDY1fQ.JkZcXvZ8rus7NJyWXV26SpavBIhMvyxtiY0vuHKQoE4
 
 {
-    "name": "updatedStation",
+    "name": "updatedStation1",
     "location": "muhanga, Rwanda"
 }
 
 
 ### Delete Station
-DELETE http://localhost:5000/api/stations/delete/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTEzMDk1LCJleHAiOjE3Mzk1MTQ4OTV9._3FDKOLgPPfriF67CTOLxhoBHY9iia9IZkvvL7bgdpc
+DELETE http://localhost:5000/api/stations/delete/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYzMTY2NSwiZXhwIjoxNzM5NjMzNDY1fQ.JkZcXvZ8rus7NJyWXV26SpavBIhMvyxtiY0vuHKQoE4

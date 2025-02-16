@@ -23,8 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Vehicle.associate = (models) => {
-    Vehicle.hasOne(models.Driver, { foreignKey: "vehicleId" });
-    Vehicle.hasMany(models.FuelTransaction, { foreignKey: "vehicleId" });
+    Vehicle.hasOne(models.Driver, {
+      foreignKey: "vehicleId",
+      onDelete: "CASCADE",
+    });
+    Vehicle.hasMany(models.FuelTransaction, {
+      foreignKey: "vehicleId",
+      onDelete: "CASCADE",
+    });
   };
 
   return Vehicle;

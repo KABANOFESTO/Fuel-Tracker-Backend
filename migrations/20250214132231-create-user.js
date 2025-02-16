@@ -26,6 +26,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      stationId: {
+        type: Sequelize.INTEGER,
+        allowNull: true, // Only required for workers, others will be NULL
+        references: {
+          model: 'Stations',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL', // If a station is deleted, set stationId to NULL
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,

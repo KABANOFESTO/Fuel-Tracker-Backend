@@ -2,43 +2,44 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "add@gmail.com",
-    "password": "test"
+    "email": "fab2@gmail.com",
+    "password": "Password1@"
 }
 ### Get all drivers
 GET http://localhost:5000/api/drivers/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NTk4LCJleHAiOjE3Mzk1NDYzOTh9.G8dwHCTfHYBRmNdnzknd8WBVcuNEriVRLUIQvWwdoKo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
 
 
 ### Get a single driver by ID
-GET http://localhost:5000/api/drivers/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NTk4LCJleHAiOjE3Mzk1NDYzOTh9.G8dwHCTfHYBRmNdnzknd8WBVcuNEriVRLUIQvWwdoKo
+GET http://localhost:5000/api/drivers/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
 
 
 ### Register a new driver
 POST http://localhost:5000/api/drivers/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NTk4LCJleHAiOjE3Mzk1NDYzOTh9.G8dwHCTfHYBRmNdnzknd8WBVcuNEriVRLUIQvWwdoKo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5Njg1OTM3LCJleHAiOjE3Mzk2ODc3Mzd9.FLbQy1vmlLgvU0nu8HsB4T6PiTbAXLyyCkv1vg4fkHg
 
 {
   "name": "Jane Smith",
-  "licenseNumber": "DL654321",
-  "vehicleId": 2
+  "licenseNumber": "1200080086198240",
+  "vehicleId": 1
 }
 
 
 ### Update driver details
-PUT http://localhost:5000/api/drivers/update/1
+PUT http://localhost:5000/api/drivers/update/1200080086198240
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NTk4LCJleHAiOjE3Mzk1NDYzOTh9.G8dwHCTfHYBRmNdnzknd8WBVcuNEriVRLUIQvWwdoKo
+Authorization: Bearer 
+eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU3NzUzLCJleHAiOjE3Mzk2NTk1NTN9.zXiUfYWxL37h-Ior79dW87jQvPMREKTPSZGiJNyGP9w
 
 {
-  "name": "Patrick mugisha",
-  "licenseNumber": "DL12364248",
-  "vehicleId": 2
+  "name": "N.mugisha",
+  "licenseNumber": "12000800861982",
+  "vehicleId": 1
 }
 
 
 ### Delete a driver
-DELETE http://localhost:5000/api/drivers/delete/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0NTk4LCJleHAiOjE3Mzk1NDYzOTh9.G8dwHCTfHYBRmNdnzknd8WBVcuNEriVRLUIQvWwdoKo
+DELETE http://localhost:5000/api/drivers/delete/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI

@@ -9,6 +9,9 @@ exports.updateStation = async (id, data) => {
   console.log(`Update result for ID ${id}:`, result);
   return result;
 };
+  exports.getStationByNameAndLocation= async (name, location) =>{
+    return await Station.findOne({ where: { name, location } });
+  }
 exports.deleteStation = async (id) => {
   const result = await Station.destroy({ where: { id } });
   console.log(`Delete result for ID ${id}:`, result);

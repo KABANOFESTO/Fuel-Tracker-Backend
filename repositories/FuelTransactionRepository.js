@@ -40,16 +40,14 @@ class FuelTransactionRepository {
   }
 
   static async createTransaction(data) {
-    // Create the fuel transaction directly since calculations are done in the service
     return await FuelTransaction.create({
       stationId: data.stationId,
-      vehicleId: data.vehicleId,
+      vehicleId: data.vehicleId, // Use vehicleId instead of vehiclePlateNumber
       driverId: data.driverId,
       operatorId: data.operatorId,
       fuel_type: data.fuel_type,
       total_litres: data.total_litres,
       totalPrice: data.totalPrice,
-      fuelPriceId: data.fuelPriceId,
     });
   }
 

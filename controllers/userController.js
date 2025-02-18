@@ -47,14 +47,23 @@ exports.createUser = async (req, res) => {
 // Update user
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
-  const updates = req.body;
   try {
+    console.log("Complete req.file:", req.file);
+
+    // Set pictureUrl to null if no file is provided
+    const pictureUrl = req.file ? req.file.path : null;
+    console.log("Cloudinary URL being updated:", pictureUrl);
+
+    const updates = {
+      ...req.body,
+      picture: pictureUrl || undefined, // Ensure null is stored if no picture
+    };
+
     const updatedUser = await userService.updateUser(id, updates);
     if (!updatedUser) {
       return res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json(updatedUser);
-    return { message: "User updated successfully" };
+    res.status(200).json({ message: "User updated successfully", updatedUser });
   } catch (error) {
     logger.error(`Failed to update user: ${error.message}`);
     res.status(500).json({ message: "Failed to update user" });

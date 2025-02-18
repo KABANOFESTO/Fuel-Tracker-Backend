@@ -76,7 +76,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/api/auth/reset-password
+POST http://localhost:5000/api/auth//reset-password?token=Reset%20Your%20Password
 Content-Type: application/json
 
 {

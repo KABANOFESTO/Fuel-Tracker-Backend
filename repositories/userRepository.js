@@ -23,9 +23,10 @@ exports.createUser = async (userData) => {
 
 // Update user by ID
 exports.updateUser = async (id, updateData) => {
-  return await User.update(updateData, { where: { id } });
+  const [updatedRows] = await User.update(updateData, { where: { id } });
+  if (updatedRows === 0) return null;
+  return await User.findByPk(id); // Return updated user
 };
-
 // Delete user by ID
 exports.deleteUser = async (id) => {
   return await User.destroy({ where: { id } });

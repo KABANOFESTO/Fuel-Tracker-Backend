@@ -155,11 +155,13 @@ exports.forgotPassword = async (email) => {
   const resetToken = crypto.randomBytes(32).toString("hex");
   const resetTokenExpires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
 
+  console.log(resetToken);
   // Store token and expiration time in the database
   await userRepository.updateResetToken(user.id, resetToken, resetTokenExpires);
 
   // Send reset password email
   const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+  console.log(resetLink);
   const subject = "Reset Your Password";
   const body = `
     <p>Hello,</p>
@@ -168,6 +170,8 @@ exports.forgotPassword = async (email) => {
     <p>If you didn't request this, please ignore this email.</p>
     <p>Best Regards,<br/>Your Company</p>
   `;
+  console.log("Email Body:", body);
+
 
   await sendemailservice.sendEmailToResetPassword(user.email, subject, body);
 };

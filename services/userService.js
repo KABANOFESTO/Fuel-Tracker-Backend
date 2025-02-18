@@ -17,12 +17,16 @@ exports.createUser = async (userData) => {
 };
 
 exports.updateUser = async (id, userData) => {
-  if (userData.password) {
-    userData.password = await hashPassword(userData.password);
+  try {
+    if (userData.password) {
+      userData.password = await hashPassword(userData.password);
+    }
+    return await userRepository.updateUser(id, userData);
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw new Error(error.message || "User update failed");
   }
-  return await userRepository.updateUser(id, userData);
 };
-
 exports.deleteUser = async (id) => {
   return await userRepository.deleteUser(id);
 };

@@ -16,3 +16,9 @@ exports.getFuelPriceByTypeAndStation = async (fuelType, stationId) => {
 };
 exports.deleteFuelPrice = async (id) =>
   await FuelPrice.destroy({ where: { id } });
+
+exports.findFuelPriceByStationId = async (stationId) => {
+  return await FuelPrice.findAll({
+    where: { stationId },
+  });
+};

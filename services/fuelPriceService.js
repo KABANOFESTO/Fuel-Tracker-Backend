@@ -12,3 +12,6 @@ exports.updateFuelPrice = (id, data) =>
   fuelPriceRepository.updateFuelPrice(id, data);
 
 exports.deleteFuelPrice = (id) => fuelPriceRepository.deleteFuelPrice(id);
+exports.getFuelPriceByStationId = async (stationId) => {
+  return await fuelPriceRepository.findFuelPriceByStationId(stationId);
+}

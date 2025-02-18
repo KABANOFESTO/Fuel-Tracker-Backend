@@ -1,15 +1,25 @@
 ### Register a new user
+### Register User
 POST http://localhost:5000/api/auth/register
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA1MDQ2LCJleHAiOjE3Mzk2MDY4NDZ9.oBU2PUxPK_CQBn_k-jbgvMe1WoiKpoQ2-OCAHeEC4S4
-Content-Type: application/json
+Content-Type: multipart/form-data
 
-{
-    "name": "user1",
-    "email": "user1@gmail.com",
-    "password": "Password1@",
-    "role": "station_worker",
-    "stationId": 1
-}
+--boundary
+Content-Disposition: form-data; name="name"
+
+John Doe
+--boundary
+Content-Disposition: form-data; name="email"
+
+johndoe@example.com
+--boundary
+Content-Disposition: form-data; name="profilePicture"; filename="profile.jpg"
+Content-Type: image/jpeg
+
+< ./profile.jpg
+--boundary--
+
+
+
 
 ### Login user
 POST http://localhost:5000/api/auth/login
@@ -34,9 +44,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA3NjQwLCJleHAiOjE3Mzk2MDk0NDB9.Lg0tceAI6Kn_yVXwsOp4PdCgAEIrpJmdwZrxBwg74eg
 
 {
-    "name": "user1",
-    "email": "user1@gmail.com",
-    "role": "Worker"
+    "name": "viewer",
+    "email": "viewer@gmail.com",
+    "role": "viewer"
 }
 
 ### Delete user

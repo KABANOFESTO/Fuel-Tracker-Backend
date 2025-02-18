@@ -1,13 +1,28 @@
 const authService = require("../services/authService");
 const logger = require("../config/logger");
 
+// const authService = require("../services/authService");
+
 exports.register = async (req, res) => {
   try {
-    const user = await authService.registerUser(req.body);
+    console.log("Complete req.file:", req.file);
+
+    if (!req.file || !req.file.path) {
+      return res.status(400).json({ message: "Profile picture is required." });
+    }
+
+    // Get the Cloudinary URL (correct way)
+    const pictureUrl = req.file.path;
+    console.log("Cloudinary URL being saved:", pictureUrl);
+
+    const user = await authService.registerUser(req.body, pictureUrl);
     logger.info(`User registered: ${user.email}`);
+
     res.status(201).json({ message: "User created", user });
   } catch (error) {
-    logger.error(`Registration failed for ${req.body.email}: ${error.message}`);
+    logger.error(
+      `Registration failed for ${req.body.email || "unknown"}: ${error.message}`
+    );
     res.status(400).json({ message: error.message });
   }
 };

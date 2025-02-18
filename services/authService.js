@@ -3,13 +3,28 @@ const refreshTokenRepository = require("../repositories/refreshTokenRepository")
 const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../utils/passwordUtils");
 
-exports.registerUser = async (userData) => {
-  const hashedPassword = await hashPassword(userData.password);
-  return await userRepository.createUser({
-    ...userData,
-    password: hashedPassword,
-  });
+exports.registerUser = async (userData, pictureUrl) => {
+  try {
+    console.log("Data received for registration:", userData, "Picture URL:", pictureUrl);
+
+    const defaultPassword = "DefaultPass123@";
+    const hashedPassword = await hashPassword(defaultPassword);
+
+    // Store Cloudinary URL in the database
+    const user = await userRepository.createUser({
+      ...userData,
+      password: hashedPassword,
+      forcePasswordChange: true,
+      picture: pictureUrl, // Store Cloudinary URL here
+    });
+
+    return user;
+  } catch (error) {
+    console.error("Error registering user:", error);
+    throw new Error("User registration failed");
+  }
 };
+
 
 exports.loginUser = async ({ email, password }) => {
   const user = await userRepository.findByEmail(email);
@@ -30,7 +45,7 @@ exports.loginUser = async ({ email, password }) => {
     { expiresIn: process.env.JWT_REFRESH_EXPIRES_IN }
   );
 
-  // 🛑 Clear old refresh token if exists (optional but recommended)
+  // 🛑 Clear old refresh token if exists
   await refreshTokenRepository.deleteByUserId(user.id);
 
   // ✅ Save the new refresh token
@@ -41,9 +56,6 @@ exports.loginUser = async ({ email, password }) => {
       Date.now() + parseInt(process.env.JWT_REFRESH_EXPIRES_IN) * 1000
     ),
   });
-
-  console.log("JWT_EXPIRES_IN:", process.env.JWT_EXPIRES_IN);
-  console.log("Access Token Expires At:", jwt.decode(accessToken)?.exp);
 
   return { accessToken, refreshToken };
 };
@@ -76,7 +88,6 @@ exports.refreshAccessToken = async (refreshToken) => {
 exports.logoutUser = async (refreshToken) => {
   if (!refreshToken) throw new Error("Missing refresh token");
 
-  // Check if the token exists before attempting to delete
   const tokenEntry = await refreshTokenRepository.findByToken(refreshToken);
   if (!tokenEntry) {
     throw new Error("Invalid or already logged-out token");
@@ -87,4 +98,3 @@ exports.logoutUser = async (refreshToken) => {
 
   return { message: "Logged out successfully" };
 };
-

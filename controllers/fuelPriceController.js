@@ -64,3 +64,27 @@ exports.deleteFuelPrice = async (req, res) => {
     res.status(500).json({ message: "Failed to delete fuel price", error });
   }
 };
+
+// get fuel price by staionId
+exports.getFuelPriceByStationId = async (req, res) => {
+  try {
+    const { stationId } = req.params;
+    const fuelPrices = await fuelPriceService.getFuelPriceByStationId(
+      stationId
+    );
+
+    if (!fuelPrices || fuelPrices.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No fuel prices found for this station" });
+    }
+
+    // Extract only the fuel prices
+    const prices = fuelPrices.map((fuel) => fuel.price);
+
+    return res.status(200).json(prices);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};

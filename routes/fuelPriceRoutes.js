@@ -17,9 +17,14 @@ router.get("/:stationId", fuelPriceController.getFuelPricesByStation);
 router.post("/setPrice", fuelPriceMiddleware, fuelPriceController.setFuelPrice);
 
 // Update fuel price
-router.put("/update/:id",fuelPriceController.updateFuelPrice);
+router.put("/update/:id", fuelPriceController.updateFuelPrice);
 
 // Delete fuel price
 router.delete("/delete/:id", fuelPriceController.deleteFuelPrice);
+router.get(
+  "/station/:stationId",
+  authMiddleware,
+  fuelPriceController.getFuelPriceByStationId
+);
 
 module.exports = router;

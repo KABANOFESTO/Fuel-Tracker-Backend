@@ -4,10 +4,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 Content-Type: application/json
 
 {
-    "name": "viewer1",
-    "email": "viewer2@gmail.com",
+    "name": "admin10",
+    "email": "admin10@gmail.com",
     "password": "Password1@",
-    "role": "viewer"
+    "role": "admin"
 }
 
 ### Login user

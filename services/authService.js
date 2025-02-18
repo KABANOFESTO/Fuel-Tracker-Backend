@@ -17,7 +17,10 @@ exports.registerUser = async (userData, pictureUrl) => {
     if (existingUser) {
       throw new Error("User with this email already exists.");
     }
-
+    // Validate that 'station_worker' role requires a stationId
+    if (userData.role === "station_worker" && !userData.stationId) {
+      throw new Error("A stationId is required for a station worker.");
+    }
     const defaultPassword = "DefaultPass123@";
     const hashedPassword = await hashPassword(defaultPassword);
 

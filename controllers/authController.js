@@ -7,12 +7,8 @@ exports.register = async (req, res) => {
   try {
     console.log("Complete req.file:", req.file);
 
-    if (!req.file || !req.file.path) {
-      return res.status(400).json({ message: "Profile picture is required." });
-    }
-
-    // Get the Cloudinary URL (correct way)
-    const pictureUrl = req.file.path;
+    // Set pictureUrl to null if no file is provided
+    const pictureUrl = req.file ? req.file.path : null;
     console.log("Cloudinary URL being saved:", pictureUrl);
 
     const user = await authService.registerUser(req.body, pictureUrl);
@@ -62,5 +58,23 @@ exports.logout = async (req, res) => {
   } catch (error) {
     console.error(`Logout failed: ${error.message}`);
     res.status(400).json({ message: error.message });
+  }
+};
+
+exports.changePassword = async (req, res) => {
+  try {
+    const { oldPassword, newPassword } = req.body;
+    const userId = req.user.id; // User ID from JWT authentication
+
+    if (!oldPassword || !newPassword) {
+      return res
+        .status(400)
+        .json({ error: "Both old and new passwords are required" });
+    }
+
+    await authService.changePassword(userId, oldPassword, newPassword);
+    res.json({ message: "Password changed successfully" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };

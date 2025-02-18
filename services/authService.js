@@ -5,7 +5,18 @@ const { hashPassword, comparePassword } = require("../utils/passwordUtils");
 
 exports.registerUser = async (userData, pictureUrl) => {
   try {
-    console.log("Data received for registration:", userData, "Picture URL:", pictureUrl);
+    console.log(
+      "Data received for registration:",
+      userData,
+      "Picture URL:",
+      pictureUrl
+    );
+
+    // Check if the user already exists
+    const existingUser = await userRepository.findByEmail(userData.email);
+    if (existingUser) {
+      throw new Error("User with this email already exists.");
+    }
 
     const defaultPassword = "DefaultPass123@";
     const hashedPassword = await hashPassword(defaultPassword);
@@ -15,16 +26,15 @@ exports.registerUser = async (userData, pictureUrl) => {
       ...userData,
       password: hashedPassword,
       forcePasswordChange: true,
-      picture: pictureUrl, // Store Cloudinary URL here
+      picture: pictureUrl || null, // Ensure null is stored if no picture
     });
 
     return user;
   } catch (error) {
     console.error("Error registering user:", error);
-    throw new Error("User registration failed");
+    throw new Error(error.message || "User registration failed");
   }
 };
-
 
 exports.loginUser = async ({ email, password }) => {
   const user = await userRepository.findByEmail(email);
@@ -97,4 +107,18 @@ exports.logoutUser = async (refreshToken) => {
   await refreshTokenRepository.deleteByToken(refreshToken);
 
   return { message: "Logged out successfully" };
+};
+exports.changePassword = async (userId, oldPassword, newPassword) => {
+  const user = await userRepository.findById(userId);
+  if (!user) throw new Error("User not found");
+
+  // Verify the old password
+  const isMatch = await comparePassword(oldPassword, user.password);
+  if (!isMatch) throw new Error("Incorrect old password");
+
+  // Hash the new password
+  const hashedPassword = await hashPassword(newPassword);
+
+  // Update password in the database
+  return await userRepository.updatePassword(userId, hashedPassword);
 };

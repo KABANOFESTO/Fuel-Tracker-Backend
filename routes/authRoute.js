@@ -6,12 +6,21 @@ const upload = require("../middlewares/upload");
 
 router.post(
   "/register",
-  upload.single("picture"), // This must come FIRST to handle the file upload
+  (req, res, next) => {
+    console.log("Headers:", req.headers);
+    console.log("Body:", req.body);
+    next();
+  },
+  upload.single("picture"), // 🟢 Ensure multer runs after logging
   AuthController.register
 );
 
 router.post("/login", AuthController.login);
 router.post("/refresh-token", AuthController.refreshToken);
 router.delete("/logout", AuthController.logout);
-
+router.post(
+  "/change-password",
+  validateRegister,
+  AuthController.changePassword
+);
 module.exports = router;

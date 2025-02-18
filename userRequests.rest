@@ -1,25 +1,14 @@
 ### Register a new user
-### Register User
 POST http://localhost:5000/api/auth/register
-Content-Type: multipart/form-data
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA1MDQ2LCJleHAiOjE3Mzk2MDY4NDZ9.oBU2PUxPK_CQBn_k-jbgvMe1WoiKpoQ2-OCAHeEC4S4
+Content-Type: application/json
 
---boundary
-Content-Disposition: form-data; name="name"
-
-John Doe
---boundary
-Content-Disposition: form-data; name="email"
-
-johndoe@example.com
---boundary
-Content-Disposition: form-data; name="profilePicture"; filename="profile.jpg"
-Content-Type: image/jpeg
-
-< ./profile.jpg
---boundary--
-
-
-
+{
+    "name": "viewer1",
+    "email": "viewer2@gmail.com",
+    "password": "Password1@",
+    "role": "viewer"
+}
 
 ### Login user
 POST http://localhost:5000/api/auth/login

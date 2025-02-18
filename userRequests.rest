@@ -5,8 +5,9 @@ Content-Type: application/json
 
 {
     "name": "Feston",
-    "email": "kabanofesto1@gmail.com",
-    "role": "admin"
+    "email": "festokabano@gmail.com",
+    "role": "station_worker",
+    "stationId": 1
 }
 
 ### Login user
@@ -74,3 +75,11 @@ Content-Type: application/json
   "email": "fabricenzamwitakuze1@gmail.com"
 }
 
+###
+POST http://localhost:5000/api/auth/reset-password
+Content-Type: application/json
+
+{
+  //  "token": "PASTE_THE_TOKEN_HERE",
+  "newPassword": "NewStrongPassword123!"
+}

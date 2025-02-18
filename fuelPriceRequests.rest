@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "email": "admin@gmail.com",
-    "password": "Password1@"
+    "password": "DefaultPass123@"
 }
 ### Get all fuel prices
 GET http://localhost:5000/api/fuel-prices/all

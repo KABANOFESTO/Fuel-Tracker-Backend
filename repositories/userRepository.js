@@ -54,12 +54,19 @@ exports.getAvailableRoles = async () => {
 };
 
 exports.findByResetToken = async (token) => {
-  return await db.User.findOne({ where: { resetPasswordToken: token } });
+  return await User.findOne({ where: { resetToken: token } });
 };
 
-exports.updateResetToken = async (userId, token) => {
-  await db.User.update(
-    { resetPasswordToken: token },
+exports.updateResetToken = async (userId, token, expiresAt) => {
+  return await User.update(
+    { resetToken: token, resetTokenExpires: expiresAt },
+    { where: { id: userId } }
+  );
+};
+
+exports.updatePassword = async (userId, hashedPassword) => {
+  return await User.update(
+    { password: hashedPassword, resetToken: null, resetTokenExpires: null },
     { where: { id: userId } }
   );
 };

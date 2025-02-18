@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(models.Station, {
         foreignKey: "stationId",
         as: "station",
-        constraints: false, // Allow NULL for other roles
+        constraints: false,
       });
     }
   }
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       password: DataTypes.STRING,
       forcePasswordChange: {
         type: DataTypes.BOOLEAN,
-        defaultValue: true, // User must change password on first login
+        defaultValue: true,
       },
       role: {
         type: DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       stationId: {
         type: DataTypes.INTEGER,
-        allowNull: true, // NULL for non-workers
+        allowNull: true,
         references: {
           model: "Stations",
           key: "id",
@@ -50,8 +50,21 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       picture: {
-        type: DataTypes.STRING, // Store file path or URL
-        allowNull: true, // User may not upload a picture
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      phoneNumber: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true,
+      },
+      resetToken: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      resetTokenExpires: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
     },
     {

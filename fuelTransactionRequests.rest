@@ -2,8 +2,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "user1@gmail.com",
-    "password": "Password1@"
+    "email": "festokabano@gmail.com",
+    "password": "DefaultPass123@"
 }
 ### Get all fuel transactions
 GET http://localhost:5000/api/fuel-transactions
@@ -24,14 +24,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 ### Record a new fuel transaction (remove total_cost)
 POST http://localhost:5000/api/fuel-transactions/record
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5Njg1OTM3LCJleHAiOjE3Mzk2ODc3Mzd9.FLbQy1vmlLgvU0nu8HsB4T6PiTbAXLyyCkv1vg4fkHg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJzdGF0aW9uX3dvcmtlciIsImlhdCI6MTczOTkxNDM0NSwiZXhwIjoxNzM5OTE2MTQ1fQ.f36cUKmnwOb86tk0cj60e5KksQP5ghUHxhhSTgpnIZQ
 
 {
   "stationId": 1,
   "vehiclePlateNumber": "RAF 660B",
   "driverId": 1,
   "fuel_type": "petrol",
-  "total_litres": 100.5
+  "total_litres": 200.8
 }
 
 

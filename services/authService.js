@@ -3,10 +3,9 @@ const authRepository = require("../repositories/authRepository");
 const refreshTokenRepository = require("../repositories/refreshTokenRepository");
 const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../utils/passwordUtils");
-const sendWelcomeEmail = require("../services/emailService");
+const sendemailservice = require("../services/emailService");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
-
 exports.registerUser = async (userData, pictureUrl) => {
   try {
     console.log(
@@ -39,7 +38,11 @@ exports.registerUser = async (userData, pictureUrl) => {
     });
 
     // Send email with login details
-    await sendWelcomeEmail(userData.email, userData.name, defaultPassword);
+    await sendemailservice.sendWelcomeEmail(
+      userData.email,
+      userData.name,
+      defaultPassword
+    );
 
     return user;
   } catch (error) {
@@ -148,24 +151,45 @@ exports.forgotPassword = async (email) => {
   const user = await userRepository.findByEmail(email);
   if (!user) throw { status: 404, message: "User not found." };
 
-  // Generate reset token
+  // Generate reset token and expiration time (valid for 1 hour)
   const resetToken = crypto.randomBytes(32).toString("hex");
-  await userRepository.updateResetToken(user.id, resetToken);
+  const resetTokenExpires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
 
-  // Send email with reset link
-  const resetLink = `http://127.0.0.1:5501/reset.html?token=${resetToken}`;
-  const subject = "Reset Password";
-  const body = `Hello,\n\nClick the link below to reset your password:\n${resetLink}\n\nIf you did not request this, ignore this email.\n\nBest,\nYour Team`;
+  // Store token and expiration time in the database
+  await userRepository.updateResetToken(user.id, resetToken, resetTokenExpires);
 
-  await emailService.sendSimpleEmail(user.email, subject, body);
+  // Send reset password email
+  const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+  const subject = "Reset Your Password";
+  const body = `
+    <p>Hello,</p>
+    <p>We received a request to reset your password. Click the link below to reset it:</p>
+    <p><a href="${resetLink}" target="_blank">Reset Password</a></p>
+    <p>If you didn't request this, please ignore this email.</p>
+    <p>Best Regards,<br/>Your Company</p>
+  `;
+
+  await sendemailservice.sendEmailToResetPassword(user.email, subject, body);
 };
 
 exports.resetPassword = async (token, newPassword) => {
-  if (!token || !newPassword) throw { status: 400, message: "Token and new password are required." };
+  if (!token || !newPassword)
+    throw { status: 400, message: "Token and new password are required." };
 
+  // Find user by reset token
   const user = await userRepository.findByResetToken(token);
-  if (!user) throw { status: 400, message: "Invalid or expired reset token." };
+  if (!user) throw { status: 400, message: "Invalid reset token." };
 
+  // Check if the token has expired
+  if (user.resetTokenExpires < new Date()) {
+    throw { status: 400, message: "Reset token has expired." };
+  }
+
+  // Hash the new password
   const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+  // Update user password and clear reset token
   await userRepository.updatePassword(user.id, hashedPassword);
+
+  console.log(`✅ Password reset successfully for user: ${user.email}`);
 };

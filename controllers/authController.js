@@ -78,3 +78,22 @@ exports.changePassword = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+exports.forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    await authService.forgotPassword(email);
+    res.status(200).json({ message: "Password reset email sent." });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message });
+  }
+};
+
+exports.resetPassword = async (req, res) => {
+  try {
+    const { token, newPassword } = req.body;
+    await authService.resetPassword(token, newPassword);
+    res.status(200).json({ message: "Password successfully reset." });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message });
+  }
+};

@@ -4,10 +4,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 Content-Type: application/json
 
 {
-    "name": "fabrice50",
-    "email": "fabrice50@gmail.com",
-    "password": "Fabrice@1",
-    "role": "viewer"
+    "name": "Feston",
+    "email": "kabanofesto1@gmail.com",
+    "role": "admin"
 }
 
 ### Login user
@@ -15,8 +14,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "fabrice50@gmail.com",
-    "password": "NewPass456@"
+    "email": "testuser@gmail.com",
+    "password": "DefaultPass123@"
 }
 
 ### Get all users
@@ -28,13 +27,13 @@ GET http://localhost:5000/api/users/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU5NTQ3LCJleHAiOjE3Mzk2NjEzNDd9.Q7mhIsl6baLRv3lBiGkX7Hb-KV9QrrQJlH0zD9h9BXc
 
 ### Update user details
-PUT http://localhost:5000/api/users/update/1
+PUT http://localhost:5000/api/users/update/20
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA3NjQwLCJleHAiOjE3Mzk2MDk0NDB9.Lg0tceAI6Kn_yVXwsOp4PdCgAEIrpJmdwZrxBwg74eg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTg5MTUxMywiZXhwIjoxNzM5ODkzMzEzfQ.5bcXH9AMjeXKzhGJD_7KzKanaLMjrcl227sCTv5pxlg
 
 {
-    "name": "viewer",
-    "email": "viewer@gmail.com",
+    "name": "testuserupdated",
+    "email": "testuserupdated@gmail.com",
     "role": "viewer"
 }
 
@@ -60,9 +59,18 @@ Content-Type: application/json
 ### Change User Password
 PUT http://localhost:5000/api/auth/change-password
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInJvbGUiOiJ2aWV3ZXIiLCJpYXQiOjE3Mzk4ODcwMjEsImV4cCI6MTczOTg4ODgyMX0.6i8bl28TUBvfPNRhVFvfirffMqOWqq43wIt7Y4MU8Oo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTg5MTUxMywiZXhwIjoxNzM5ODkzMzEzfQ.5bcXH9AMjeXKzhGJD_7KzKanaLMjrcl227sCTv5pxlg
 
 {
-  "oldPassword": "NewPass456@",
+  "oldPassword": "DefaultPass123@",
   "newPassword": "NewPass456@"
 }
+
+###
+POST http://localhost:5000/api/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "fabricenzamwitakuze1@gmail.com"
+}
+

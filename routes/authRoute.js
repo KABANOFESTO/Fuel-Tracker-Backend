@@ -20,4 +20,6 @@ router.post("/login", AuthController.login);
 router.post("/refresh-token", AuthController.refreshToken);
 router.delete("/logout", AuthController.logout);
 router.put("/change-password", authMiddleware, AuthController.changePassword);
+router.post("/forgot-password", AuthController.forgotPassword);
+router.post("/reset-password", AuthController.resetPassword);
 module.exports = router;

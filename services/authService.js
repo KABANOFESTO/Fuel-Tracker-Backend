@@ -3,6 +3,9 @@ const authRepository = require("../repositories/authRepository");
 const refreshTokenRepository = require("../repositories/refreshTokenRepository");
 const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../utils/passwordUtils");
+const sendWelcomeEmail = require("../services/emailService");
+const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 
 exports.registerUser = async (userData, pictureUrl) => {
   try {
@@ -18,10 +21,12 @@ exports.registerUser = async (userData, pictureUrl) => {
     if (existingUser) {
       throw new Error("User with this email already exists.");
     }
+
     // Validate that 'station_worker' role requires a stationId
     if (userData.role === "station_worker" && !userData.stationId) {
       throw new Error("A stationId is required for a station worker.");
     }
+
     const defaultPassword = "DefaultPass123@";
     const hashedPassword = await hashPassword(defaultPassword);
 
@@ -32,6 +37,9 @@ exports.registerUser = async (userData, pictureUrl) => {
       forcePasswordChange: true,
       picture: pictureUrl || null, // Ensure null is stored if no picture
     });
+
+    // Send email with login details
+    await sendWelcomeEmail(userData.email, userData.name, defaultPassword);
 
     return user;
   } catch (error) {
@@ -132,4 +140,32 @@ exports.changePassword = async (userId, oldPassword, newPassword) => {
   }
 
   return await authRepository.updatePassword(userId, hashedPassword);
+};
+
+exports.forgotPassword = async (email) => {
+  if (!email) throw { status: 400, message: "Email is required." };
+
+  const user = await userRepository.findByEmail(email);
+  if (!user) throw { status: 404, message: "User not found." };
+
+  // Generate reset token
+  const resetToken = crypto.randomBytes(32).toString("hex");
+  await userRepository.updateResetToken(user.id, resetToken);
+
+  // Send email with reset link
+  const resetLink = `http://127.0.0.1:5501/reset.html?token=${resetToken}`;
+  const subject = "Reset Password";
+  const body = `Hello,\n\nClick the link below to reset your password:\n${resetLink}\n\nIf you did not request this, ignore this email.\n\nBest,\nYour Team`;
+
+  await emailService.sendSimpleEmail(user.email, subject, body);
+};
+
+exports.resetPassword = async (token, newPassword) => {
+  if (!token || !newPassword) throw { status: 400, message: "Token and new password are required." };
+
+  const user = await userRepository.findByResetToken(token);
+  if (!user) throw { status: 400, message: "Invalid or expired reset token." };
+
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+  await userRepository.updatePassword(user.id, hashedPassword);
 };

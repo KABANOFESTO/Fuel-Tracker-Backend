@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const AuthController = require("../controllers/authController");
 const { validateRegister } = require("../middlewares/userMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/upload");
 
 router.post(
@@ -18,9 +19,5 @@ router.post(
 router.post("/login", AuthController.login);
 router.post("/refresh-token", AuthController.refreshToken);
 router.delete("/logout", AuthController.logout);
-router.post(
-  "/change-password",
-  validateRegister,
-  AuthController.changePassword
-);
+router.put("/change-password", authMiddleware, AuthController.changePassword);
 module.exports = router;

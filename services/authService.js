@@ -1,4 +1,5 @@
 const userRepository = require("../repositories/userRepository");
+const authRepository = require("../repositories/authRepository");
 const refreshTokenRepository = require("../repositories/refreshTokenRepository");
 const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../utils/passwordUtils");
@@ -112,16 +113,23 @@ exports.logoutUser = async (refreshToken) => {
   return { message: "Logged out successfully" };
 };
 exports.changePassword = async (userId, oldPassword, newPassword) => {
+  console.log(`my used id is ${userId}`);
   const user = await userRepository.findById(userId);
   if (!user) throw new Error("User not found");
 
-  // Verify the old password
+  console.log("Stored Hashed Password:", user.password);
+
+  // 🔹 Ensure correct password comparison
   const isMatch = await comparePassword(oldPassword, user.password);
+  console.log("Password Comparison Result:", isMatch);
+
   if (!isMatch) throw new Error("Incorrect old password");
 
-  // Hash the new password
+  // 🔹 Hash the new password properly
   const hashedPassword = await hashPassword(newPassword);
+  if (!hashedPassword || typeof hashedPassword !== "string") {
+    throw new Error("Password hashing failed");
+  }
 
-  // Update password in the database
-  return await userRepository.updatePassword(userId, hashedPassword);
+  return await authRepository.updatePassword(userId, hashedPassword);
 };

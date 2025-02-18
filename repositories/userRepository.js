@@ -8,7 +8,7 @@ exports.getAllUsers = async () => {
 
 // Find user by ID
 exports.findById = async (id) => {
-  return await User.findByPk(id, { attributes: { exclude: ["password"] } });
+  return await User.findByPk(id);
 };
 
 // Find user by email

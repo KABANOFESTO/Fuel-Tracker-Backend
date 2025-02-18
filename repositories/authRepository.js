@@ -14,8 +14,11 @@ exports.findByEmail = async (email) => {
 
 
 exports.updatePassword = async (userId, hashedPassword) => {
-  return await User.findByIdAndUpdate(userId, { 
-    password: hashedPassword, 
-    forcePasswordChange: false // Reset flag after password change
-  }, { new: true });
+  return await User.update(
+    { 
+      password: hashedPassword, 
+      forcePasswordChange: false // Reset flag after password change
+    }, 
+    { where: { id: userId } } // Specify which user to update
+  );
 };

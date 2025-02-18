@@ -14,13 +14,13 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "fab2@gmail.com",
+    "email": "admin@gmail.com",
     "password": "Password1@"
 }
 
 ### Get all users
 GET http://localhost:5000/api/stations/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYzMTY2NSwiZXhwIjoxNzM5NjMzNDY1fQ.JkZcXvZ8rus7NJyWXV26SpavBIhMvyxtiY0vuHKQoE4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5ODg3MjI3LCJleHAiOjE3Mzk4ODkwMjd9.s66BHKS_QFKgQoYUUEmHMWgrv9L16N90rSlo5tHsyVk
 
 ### Get user by ID
 GET http://localhost:5000/api/stations/6

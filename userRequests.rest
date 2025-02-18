@@ -4,10 +4,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 Content-Type: application/json
 
 {
-    "name": "admin10",
-    "email": "admin10@gmail.com",
-    "password": "Password1@",
-    "role": "admin"
+    "name": "fabrice50",
+    "email": "fabrice50@gmail.com",
+    "password": "Fabrice@1",
+    "role": "viewer"
 }
 
 ### Login user
@@ -15,8 +15,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "user1@gmail.com",
-    "password": "Password1@"
+    "email": "fabrice50@gmail.com",
+    "password": "NewPass456@"
 }
 
 ### Get all users
@@ -55,4 +55,14 @@ Content-Type: application/json
 
 {
   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM5NjEwMTYzLCJleHAiOjE3Mzk2MTA3NjN9.uBbppY9z5aC65xkIO3H7QSxQjpxrUsi3mC1L_jCuGV4"
+}
+
+### Change User Password
+PUT http://localhost:5000/api/auth/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInJvbGUiOiJ2aWV3ZXIiLCJpYXQiOjE3Mzk4ODcwMjEsImV4cCI6MTczOTg4ODgyMX0.6i8bl28TUBvfPNRhVFvfirffMqOWqq43wIt7Y4MU8Oo
+
+{
+  "oldPassword": "NewPass456@",
+  "newPassword": "NewPass456@"
 }

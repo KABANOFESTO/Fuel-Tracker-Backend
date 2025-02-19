@@ -111,6 +111,12 @@ class FuelTransactionService {
       throw error;
     }
   }
+
+  static async getTransactionsByOperator(operatorId) {
+    if (!operatorId) throw { status: 400, message: "Operator ID is required." };
+
+    return await FuelTransactionRepository.findByOperatorId(operatorId);
+  }
 }
 
 module.exports = FuelTransactionService;

@@ -55,6 +55,13 @@ class FuelTransactionRepository {
     const deleted = await FuelTransaction.destroy({ where: { id } });
     return deleted === 1;
   }
+
+  static async findByOperatorId(operatorId) {
+    return await FuelTransaction.findAll({
+      where: { operatorId },
+      order: [["createdAt", "DESC"]], // Order by latest transactions
+    });
+  }
 }
 
 module.exports = FuelTransactionRepository;

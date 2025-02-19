@@ -13,9 +13,13 @@ router.get(
   "/vehicle/:plateNumber",
   FuelTransactionController.getTransactionsByVehicle
 );
-
+router.get(
+  "/:operatorId",
+  authMiddleware,
+  FuelTransactionController.getTransactionsByOperator
+);
 // Get transactions recorded by a specific station worker (user with role 'station')
-router.get("/user/:userId", FuelTransactionController.getTransactionsByUser);
+// router.get("/user/:userId", FuelTransactionController.getTransactionsByUser);
 
 // Record a new fuel transaction
 router.post(

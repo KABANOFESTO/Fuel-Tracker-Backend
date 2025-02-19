@@ -49,7 +49,7 @@ exports.getFuelPricesByStation = async (req, res) => {
       });
     }
 
-    res.status(200).json(prices);
+    res.status(200).json(prices.price);
   } catch (error) {
     res.status(500).json({ message: "Failed to retrieve fuel prices", error });
   }

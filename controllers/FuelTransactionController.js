@@ -35,7 +35,10 @@ class FuelTransactionController {
         await FuelTransactionService.getTransactionsByVehicle(
           req.params.plateNumber
         );
-      logger.info(`Fetched transactions for vehicle ${req.params.plateNumber}`);
+
+      logger.info(
+        `Fetched recent transactions (last 24h) for vehicle ${req.params.plateNumber}`
+      );
       res.status(200).json(transactions);
     } catch (error) {
       logger.error(`Failed to fetch transactions by vehicle: ${error.message}`);

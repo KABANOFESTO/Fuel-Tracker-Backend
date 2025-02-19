@@ -4,7 +4,7 @@ const FuelPriceRepository = require("../repositories/fuelPriceRepository");
 const StationRepository = require("../repositories/stationRepository");
 const VehicleRepository = require("../repositories/vehicleRepository");
 const DriverRepository = require("../repositories/DriverRepository");
-
+const { Op } = require("sequelize");
 class FuelTransactionService {
   static getAllTransactions() {
     return FuelTransactionRepository.getAllTransactions();
@@ -14,8 +14,8 @@ class FuelTransactionService {
     return FuelTransactionRepository.getTransactionById(id);
   }
 
-  static getTransactionsByVehicle(plateNumber) {
-    return FuelTransactionRepository.getTransactionsByVehicle(plateNumber);
+  static async getTransactionsByVehicle(plateNumber) {
+    return await FuelTransactionRepository.getTransactionsByVehicle(plateNumber);
   }
 
   static getTransactionsByUser(userId) {

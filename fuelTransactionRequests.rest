@@ -14,17 +14,17 @@ GET http://localhost:5000/api/fuel-transactions/7
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
 
 ### Get transactions for a vehicle by plate number
-GET http://localhost:5000/api/fuel-transactions/vehicle/RAF60B
+GET http://localhost:5000/api/fuel-transactions/vehicle/RAF 660B
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
 
 ### Get transactions recorded by a specific station worker (user with role 'station')
-GET http://localhost:5000/api/fuel-transactions/user/5
+GET http://localhost:5000/api/fuel-transactions/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
 
 ### Record a new fuel transaction (remove total_cost)
 POST http://localhost:5000/api/fuel-transactions/record
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJzdGF0aW9uX3dvcmtlciIsImlhdCI6MTczOTkxNDM0NSwiZXhwIjoxNzM5OTE2MTQ1fQ.f36cUKmnwOb86tk0cj60e5KksQP5ghUHxhhSTgpnIZQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJzdGF0aW9uX3dvcmtlciIsImlhdCI6MTc0MDAwNDAyNSwiZXhwIjoxNzQwMDA1ODI1fQ.wt-NgCBQnDcUajtrGUB1mR87QfmQHo8cshZDsjcIB9w
 
 {
   "stationId": 1,

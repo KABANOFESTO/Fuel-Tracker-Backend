@@ -24,7 +24,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6I
 
 ### Get user by ID
 GET http://localhost:5000/api/stations/6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzQxOSwiZXhwIjoxNzM5NjE1MjE5fQ.YUjXexeUBpXGu9YpKjnDAsqygj_9xu8Cb9eDu6pvfg0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5OTk5OTA2LCJleHAiOjE3NDAwMDE3MDZ9.hDYwBFyzZInU7Cf8DYKIrO29Va2OASoFttZvh5XQFgQ
 
 ### Update Station details
 PUT http://localhost:5000/api/stations/update/6

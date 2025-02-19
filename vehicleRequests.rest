@@ -13,8 +13,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6I
 
 
 ### Get a single vehicle by ID
-GET http://localhost:5000/api/vehicles/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU3NzUzLCJleHAiOjE3Mzk2NTk1NTN9.zXiUfYWxL37h-Ior79dW87jQvPMREKTPSZGiJNyGP9w
+GET http://localhost:5000/api/vehicles/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5OTk5OTA2LCJleHAiOjE3NDAwMDE3MDZ9.hDYwBFyzZInU7Cf8DYKIrO29Va2OASoFttZvh5XQFgQ
 
 
 ### Get vehicle details by plate number

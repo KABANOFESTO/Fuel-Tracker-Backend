@@ -7,6 +7,7 @@ const {
   Station,
   FuelPrice,
 } = require("../models");
+const { Op } = require("sequelize");
 
 class FuelTransactionRepository {
   static async getAllTransactions() {
@@ -22,13 +23,25 @@ class FuelTransactionRepository {
   }
 
   static async getTransactionsByVehicle(plateNumber) {
+    const twentyFourHoursAgo = new Date();
+    twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+
     return await FuelTransaction.findAll({
+      where: {
+        createdAt: {
+          [Op.gte]: twentyFourHoursAgo, // Only fetch transactions in the last 24 hours
+        },
+      },
       include: [
-        { model: Vehicle, where: { plateNumber } },
+        {
+          model: Vehicle,
+          where: { plateNumber },
+        },
         User,
         Driver,
         Station,
       ],
+      order: [["createdAt", "DESC"]],
     });
   }
 

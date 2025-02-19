@@ -1,4 +1,3 @@
-// controllers/driverController.js
 const DriverService = require("../services/driverService");
 
 class DriverController {
@@ -25,7 +24,22 @@ class DriverController {
 
   static async createDriver(req, res) {
     try {
-      const newDriver = await DriverService.createDriver(req.body);
+      const { name, licenseNumber, vehicleId, email, phoneNumber } = req.body;
+
+      if (!email || !phoneNumber) {
+        return res
+          .status(400)
+          .json({ message: "Email and phone number are required" });
+      }
+
+      const newDriver = await DriverService.createDriver({
+        name,
+        licenseNumber,
+        vehicleId,
+        email,
+        phoneNumber,
+      });
+
       res.status(201).json(newDriver);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -34,12 +48,8 @@ class DriverController {
 
   static async updateDriver(req, res) {
     try {
-      console.log("req.params:", req.params); // Debugging params
-
-      const { licensenumber } = req.params; // Extract correctly
-      const licenseNumber = licensenumber; // Assign correctly
-
-      console.log("Extracted licenseNumber:", licenseNumber); // Debugging extracted value
+      const { licensenumber } = req.params;
+      const licenseNumber = licensenumber;
 
       if (!licenseNumber) {
         return res.status(400).json({ message: "License number is required" });
@@ -56,7 +66,6 @@ class DriverController {
 
       res.status(200).json(updatedDriver);
     } catch (error) {
-      console.error("Error updating driver:", error);
       res.status(500).json({ error: error.message });
     }
   }
@@ -69,7 +78,6 @@ class DriverController {
       }
       return res.status(200).json({ message: "Driver deleted successfully" });
     } catch (error) {
-      console.error("Error deleting driver:", error);
       res
         .status(500)
         .json({ message: "Failed to delete driver", error: error.message });

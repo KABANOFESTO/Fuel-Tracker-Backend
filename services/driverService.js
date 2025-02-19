@@ -1,4 +1,3 @@
-// services/driverService.js
 const DriverRepository = require("../repositories/DriverRepository");
 
 class DriverService {
@@ -13,6 +12,7 @@ class DriverService {
   static async createDriver(driverData) {
     return await DriverRepository.createDriver(driverData);
   }
+
   static async updateDriver(licenseNumber, updateData) {
     return await DriverRepository.updateDriverByLicenseNumber(
       licenseNumber,

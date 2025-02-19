@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class Driver extends Model {
     /**
@@ -8,23 +9,38 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Driver.belongsTo(models.Vehicle, { foreignKey: "vehicleId" });
     }
   }
+
   Driver.init(
     {
       name: DataTypes.STRING,
       licenseNumber: DataTypes.STRING,
       vehicleId: DataTypes.INTEGER,
+      email: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+      phoneNumber: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true,
+        validate: {
+          isNumeric: true,
+          len: [10, 15], // Adjust based on phone number format
+        },
+      },
     },
     {
       sequelize,
       modelName: "Driver",
     }
   );
-  Driver.associate = (models) => {
-    Driver.belongsTo(models.Vehicle, { foreignKey: "vehicleId" });
-  };
 
   return Driver;
 };

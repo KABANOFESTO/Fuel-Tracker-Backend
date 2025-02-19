@@ -1,4 +1,3 @@
-// repositories/driverRepository.js
 const { Driver } = require("../models");
 
 class DriverRepository {
@@ -17,6 +16,7 @@ class DriverRepository {
   static async getDriverByLicenseNumber(licenseNumber) {
     return await Driver.findOne({ where: { licenseNumber } });
   }
+
   static async updateDriverByLicenseNumber(licenseNumber, updateData) {
     const driver = await Driver.findOne({ where: { licenseNumber } });
     if (!driver) return null;

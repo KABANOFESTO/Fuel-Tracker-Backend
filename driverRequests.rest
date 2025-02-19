@@ -2,7 +2,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "fab2@gmail.com",
+    "email": "admin@gmail.com",
     "password": "Password1@"
 }
 ### Get all drivers
@@ -18,12 +18,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 ### Register a new driver
 POST http://localhost:5000/api/drivers/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5Njg1OTM3LCJleHAiOjE3Mzk2ODc3Mzd9.FLbQy1vmlLgvU0nu8HsB4T6PiTbAXLyyCkv1vg4fkHg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDA3NTg0LCJleHAiOjE3NDAwMDkzODR9.8w9JVEz8hE4F7SJn_mfMrOWaZGYPJCDCgmNN6tOyLiE
 
 {
-  "name": "Jane Smith",
-  "licenseNumber": "1200080086198240",
-  "vehicleId": 1
+  "name": "Jimmy",
+  "licenseNumber": "12000800861986890",
+  "vehicleId": 1,
+  "email":"jimmy@gmail.com",
+  "phoneNumber":"0780857482"
 }
 
 

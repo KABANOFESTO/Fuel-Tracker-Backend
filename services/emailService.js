@@ -38,21 +38,13 @@ const sendWelcomeEmail = async (email, name, password) => {
   }
 };
 
-const sendEmailToResetPassword = async (email, resetToken) => {
+const sendEmailToResetPassword = async (email, subject, body) => {
   try {
-    const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
-
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: "Reset Your Password",
-      html: `
-        <p>Hello,</p>
-        <p>We received a request to reset your password. Click the link below to reset it:</p>
-        <p><a href="${resetLink}" target="_blank">Reset Password</a></p>
-        <p>If you didn't request this, please ignore this email.</p>
-        <p>Best Regards,<br/>Your Company</p>
-      `,
+      subject: subject,
+      html: body, // Using the exact body passed from forgotPassword
     };
 
     await transporter.sendMail(mailOptions);

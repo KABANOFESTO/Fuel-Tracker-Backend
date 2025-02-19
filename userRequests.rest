@@ -76,10 +76,10 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/api/auth//reset-password?token=Reset%20Your%20Password
+POST http://localhost:5000/api/auth//reset-password?token=e1023d53ff118953fd0efb31fd57adfda65655797e196095b6055ab73a73e93f
 Content-Type: application/json
 
 {
   //  "token": "PASTE_THE_TOKEN_HERE",
-  "newPassword": "NewStrongPassword123!"
+  "newPassword": "NewStrongPassword234!"
 }

@@ -12,15 +12,43 @@ exports.getAllFuelPrices = async (req, res) => {
 };
 
 // Get fuel prices for a specific station
+// exports.getFuelPricesByStation = async (req, res) => {
+//   try {
+//     const { stationId } = req.params;
+//     const prices = await fuelPriceService.getFuelPricesByStation(stationId);
+//     if (!prices) {
+//       return res
+//         .status(404)
+//         .json({ message: "No fuel prices found for this station" });
+//     }
+//     res.status(200).json(prices);
+//   } catch (error) {
+//     res.status(500).json({ message: "Failed to retrieve fuel prices", error });
+//   }
+// };
+
+// Get fuel prices for a specific station and fuel type
 exports.getFuelPricesByStation = async (req, res) => {
   try {
-    const { stationId } = req.params;
-    const prices = await fuelPriceService.getFuelPricesByStation(stationId);
-    if (!prices) {
+    const { stationId, fuelType } = req.body; // Extract from request body
+
+    if (!stationId || !fuelType) {
       return res
-        .status(404)
-        .json({ message: "No fuel prices found for this station" });
+        .status(400)
+        .json({ message: "stationId and fuelType are required" });
     }
+
+    const prices = await fuelPriceService.getFuelPricesByTypeAndStation(
+      fuelType,
+      stationId
+    );
+
+    if (!prices || prices.length === 0) {
+      return res.status(404).json({
+        message: "No fuel prices found for this station and fuel type",
+      });
+    }
+
     res.status(200).json(prices);
   } catch (error) {
     res.status(500).json({ message: "Failed to retrieve fuel prices", error });

@@ -12,6 +12,8 @@ router.get("/all", fuelPriceController.getAllFuelPrices);
 
 // Get fuel prices for a specific station
 router.get("/:stationId", fuelPriceController.getFuelPricesByStation);
+// Get fuel prices for a specific station by both fuel type and station
+router.get("/getfuelprice", fuelPriceController.getFuelPricesByStation);
 
 // Set fuel price for a station (Admin only)
 router.post("/setPrice", fuelPriceMiddleware, fuelPriceController.setFuelPrice);

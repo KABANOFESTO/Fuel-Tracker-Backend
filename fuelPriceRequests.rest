@@ -3,8 +3,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "DefaultPass123@"
+    "email": "viewer@gmail.com",
+    "password": "Password1@"
 }
 ### Get all fuel prices
 GET http://localhost:5000/api/fuel-prices/all
@@ -12,8 +12,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 
 
 ### Get fuel prices for a specific station
-GET http://localhost:5000/api/fuel-prices/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYzMjU5NywiZXhwIjoxNzM5NjM0Mzk3fQ.GH9e2Os-2BQJfzyRCY7bkFHRs6IkUE15a-D7ua1iIs0
+GET http://localhost:5000/api/fuel-prices/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InZpZXdlciIsImlhdCI6MTczOTkyNDM1NSwiZXhwIjoxNzM5OTI2MTU1fQ.hNrKyphKpBwe2KqxHuoKh7aY_I6A2mBh0XkcE3zTj8s
 
 
 ### Set fuel price for a station
@@ -26,6 +26,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6I
   "fuelType": "petrol",
   "price": 1500
 }
+### Get fuel prices for a specific station
+GET http://localhost:5000/api/fuel-prices/getfuelprice
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InZpZXdlciIsImlhdCI6MTczOTkyNTIyMywiZXhwIjoxNzM5OTI3MDIzfQ.rlUU-09JsRFB7PD9D3n6NIfF5vw6YKOI9XgzWGtlzAo
+
+{
+  "stationId": 1,
+  "fuelType": "petrol"
+}
+
 
 
 ### Update fuel price

@@ -1,46 +1,41 @@
 'use strict';
 
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('RefreshTokens', {
+    await queryInterface.createTable('Reports', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      report_type: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      userId: {
+      generated_by: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Users',
           key: 'id',
         },
-        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      token: {
-        type: Sequelize.STRING,
+      data_json: {
+        type: Sequelize.JSON,
         allowNull: false,
       },
-      expiresAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      createdAt: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-      }
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('RefreshTokens');
-  }
+    await queryInterface.dropTable('Reports');
+  },
 };

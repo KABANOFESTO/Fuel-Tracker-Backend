@@ -70,14 +70,34 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal(
-          "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-        ),
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
     });
+
+    // PostgreSQL trigger to auto-update `updatedAt`
+    await queryInterface.sequelize.query(`
+      CREATE OR REPLACE FUNCTION update_updated_at_column()
+      RETURNS TRIGGER AS $$
+      BEGIN
+        NEW."updatedAt" = NOW();
+        RETURN NEW;
+      END;
+      $$ LANGUAGE plpgsql;
+
+      CREATE TRIGGER trigger_update_fuel_transactions
+      BEFORE UPDATE ON "FuelTransactions"
+      FOR EACH ROW
+      EXECUTE FUNCTION update_updated_at_column();
+    `);
   },
 
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable("FuelTransactions");
+
+    // Remove the trigger and function
+    await queryInterface.sequelize.query(`
+      DROP TRIGGER IF EXISTS trigger_update_fuel_transactions ON "FuelTransactions";
+      DROP FUNCTION IF EXISTS update_updated_at_column();
+    `);
   },
 };

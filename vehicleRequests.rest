@@ -3,8 +3,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "viewer@gmail.com",
-    "password": "Password1@"
+    "email": "Mugisha@gmail.com",
+    "password": "DefaultPass123@"
 }
 
 ### Get all vehicles
@@ -26,7 +26,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 ### Register a new vehicle
 POST http://localhost:5000/api/vehicles/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5Njg1OTM3LCJleHAiOjE3Mzk2ODc3Mzd9.FLbQy1vmlLgvU0nu8HsB4T6PiTbAXLyyCkv1vg4fkHg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDQzMTU2LCJleHAiOjE3NDAwNDQ5NTZ9.BQwssMTaD9DpEgGXyON57YtiUe0rXwjcFRJjgU8IwVM
 
 {
   "plateNumber": "RAF 660B",

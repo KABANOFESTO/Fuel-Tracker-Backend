@@ -21,10 +21,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDA3NTg0LCJleHAiOjE3NDAwMDkzODR9.8w9JVEz8hE4F7SJn_mfMrOWaZGYPJCDCgmNN6tOyLiE
 
 {
-  "name": "Jimmy",
+  "name": "Mugisha",
   "licenseNumber": "12000800861986890",
   "vehicleId": 1,
-  "email":"jimmy@gmail.com",
+  "email":"Mugisha@gmail.com",
   "phoneNumber":"0780857482"
 }
 

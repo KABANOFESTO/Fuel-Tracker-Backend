@@ -6,8 +6,7 @@ Content-Type: application/json
 {
     "name": "Mugisha",
     "email": "Mugisha@gmail.com",
-    "role": "station_worker",
-    "stationId": 1
+    "role": "admin"
 }
 
 ### Login user

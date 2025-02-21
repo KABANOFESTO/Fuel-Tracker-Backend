@@ -9,7 +9,7 @@ class DriverController {
       res.status(500).json({ error: error.message });
     }
   }
-
+  // get by id
   static async getDriverById(req, res) {
     try {
       const driver = await DriverService.getDriverById(req.params.id);

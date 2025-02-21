@@ -4,7 +4,7 @@ class DriverRepository {
   static async getAllDrivers() {
     return await Driver.findAll();
   }
-
+  // get by id
   static async getDriverById(id) {
     return await Driver.findByPk(id);
   }

@@ -23,6 +23,10 @@ class DriverService {
   static async deleteDriver(id) {
     return await DriverRepository.deleteDriver(id);
   }
+  // New method to get driver by vehicleId
+  static async getDriverByVehicleId(vehicleId) {
+    return await DriverRepository.getDriverByVehicleId(vehicleId);
+  }
 }
 
 module.exports = DriverService;

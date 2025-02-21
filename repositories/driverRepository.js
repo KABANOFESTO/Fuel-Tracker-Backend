@@ -29,6 +29,9 @@ class DriverRepository {
     await driver.destroy();
     return true;
   }
+  // New method to get driver by vehicleId
+  static async getDriverByVehicleId(vehicleId) {
+    return await Driver.findOne({ where: { vehicleId } });
+  }
 }
-
 module.exports = DriverRepository;

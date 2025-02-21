@@ -3,8 +3,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "viewer@gmail.com",
-    "password": "Password1@"
+    "email": "Mugisha@gmail.com",
+    "password": "DefaultPass123@"
 }
 ### Get all fuel prices
 GET http://localhost:5000/api/fuel-prices/all
@@ -13,13 +13,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 
 ### Get fuel prices for a specific station
 GET http://localhost:5000/api/fuel-prices/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InZpZXdlciIsImlhdCI6MTczOTkyNDM1NSwiZXhwIjoxNzM5OTI2MTU1fQ.hNrKyphKpBwe2KqxHuoKh7aY_I6A2mBh0XkcE3zTj8s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
 
 
 ### Set fuel price for a station
 POST http://localhost:5000/api/fuel-prices/setPrice
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5Njg1OTM3LCJleHAiOjE3Mzk2ODc3Mzd9.FLbQy1vmlLgvU0nu8HsB4T6PiTbAXLyyCkv1vg4fkHg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
 
 {
   "stationId": 1,
@@ -27,14 +27,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6I
   "price": 1500
 }
 ### Get fuel prices for a specific station
-GET http://localhost:5000/api/fuel-prices/getfuelprice
+GET http://localhost:5000/api/fuel-prices/getfuelprice?stationId=1&fuelType=petrol
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InZpZXdlciIsImlhdCI6MTczOTkyNTIyMywiZXhwIjoxNzM5OTI3MDIzfQ.rlUU-09JsRFB7PD9D3n6NIfF5vw6YKOI9XgzWGtlzAo
-
-{
-  "stationId": 1,
-  "fuelType": "petrol"
-}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
 
 
 

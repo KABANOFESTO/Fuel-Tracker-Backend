@@ -2,8 +2,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "Password1@"
+    "email": "Mugisha@gmail.com",
+    "password": "DefaultPass123@"
 }
 ### Get all drivers
 GET http://localhost:5000/api/drivers/all
@@ -13,6 +13,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 ### Get a single driver by ID
 GET http://localhost:5000/api/drivers/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
+
+### Get a single driver by vehicleId
+GET http://localhost:5000/api/drivers/vehicle/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMTM4NjAyLCJleHAiOjE3NDAxNDA0MDJ9.Ma2Rm-pA6hY3hRJdb_4kmUVOI94tzSn71ZbaUCZpTbw
 
 
 ### Register a new driver

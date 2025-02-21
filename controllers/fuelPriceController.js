@@ -30,7 +30,7 @@ exports.getAllFuelPrices = async (req, res) => {
 // Get fuel prices for a specific station and fuel type
 exports.getFuelPricesByStation = async (req, res) => {
   try {
-    const { stationId, fuelType } = req.body; // Extract from request body
+    const { stationId, fuelType } = req.query; // Extract from request query params
 
     if (!stationId || !fuelType) {
       return res
@@ -38,18 +38,21 @@ exports.getFuelPricesByStation = async (req, res) => {
         .json({ message: "stationId and fuelType are required" });
     }
 
-    const prices = await fuelPriceService.getFuelPricesByTypeAndStation(
+    console.log(`${stationId}, ${fuelType}`);
+
+    const priceData = await fuelPriceService.getFuelPricesByTypeAndStation(
       fuelType,
       stationId
     );
 
-    if (!prices || prices.length === 0) {
+    if (!priceData || priceData.length === 0) {
       return res.status(404).json({
         message: "No fuel prices found for this station and fuel type",
       });
     }
 
-    res.status(200).json(prices.price);
+    // Wrap the response inside an object
+    res.status(200).json(priceData);
   } catch (error) {
     res.status(500).json({ message: "Failed to retrieve fuel prices", error });
   }

@@ -38,12 +38,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6I
 ### Update vehicle details
 PUT http://localhost:5000/api/vehicles/update/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTIyNjYxLCJleHAiOjE3Mzk1MjQ0NjF9.scvWL_63SlFGdfFeYaT47HX_3i0P938t7uukWt8D_zI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMTI5OTAwLCJleHAiOjE3NDAxMzE3MDB9.qS7iJMBRcaczprKhyWa3zIELAnQZxc_pIRQjHCcvlEg
 
 {
-  "plateNumber": "RAC670D",
-  "model": "Honda Civic",
-  "fuelType": "Diesel"
+  "plateNumber": "RAF 660B",
+  
+  "fuelType": "petrol"
 }
 
 

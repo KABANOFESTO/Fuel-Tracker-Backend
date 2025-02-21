@@ -83,6 +83,27 @@ class DriverController {
         .json({ message: "Failed to delete driver", error: error.message });
     }
   }
-}
+  // New method to get driver by vehicleId
+  static async getDriverByVehicleId(req, res) {
+    try {
+      const { vehicleId } = req.params;
 
+      if (!vehicleId) {
+        return res.status(400).json({ message: "Vehicle ID is required" });
+      }
+
+      const driver = await DriverService.getDriverByVehicleId(vehicleId);
+
+      if (!driver) {
+        return res
+          .status(404)
+          .json({ message: "Driver not found for the given vehicle ID" });
+      }
+
+      res.status(200).json(driver);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+}
 module.exports = DriverController;

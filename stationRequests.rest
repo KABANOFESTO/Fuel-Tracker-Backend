@@ -1,6 +1,6 @@
 ### Register a new user
 POST http://localhost:5000/api/stations/create
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjgzNjcwLCJleHAiOjE3Mzk2ODU0NzB9.Asm7FHWeNhwzO6F4Xqdm8UnT7-h5tmds_GWzdWKojRU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
 Content-Type: application/json
 
 {

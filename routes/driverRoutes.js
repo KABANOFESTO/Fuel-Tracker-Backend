@@ -10,8 +10,8 @@ const {
   handleValidationErrors,
 } = require("../middlewares/driverMiddleware");
 // Driver routes
-router.get("/all",authMiddleware, DriverController.getAllDrivers);
-router.get("/:id", authMiddleware,DriverController.getDriverById);
+router.get("/all", authMiddleware, DriverController.getAllDrivers);
+router.get("/:id", authMiddleware, DriverController.getDriverById);
 router.post(
   "/register",
   validateDriverName,
@@ -30,6 +30,15 @@ router.put(
   authMiddleware,
   DriverController.updateDriver
 );
-router.delete("/delete/:id",validateLicenseNumber, DriverController.deleteDriver);
-
+router.delete(
+  "/delete/:id",
+  // validateLicenseNumber,
+  DriverController.deleteDriver
+);
+// New route to get driver by vehicleId
+router.get(
+  "/vehicle/:vehicleId",
+  authMiddleware,
+  DriverController.getDriverByVehicleId
+);
 module.exports = router;

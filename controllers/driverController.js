@@ -83,7 +83,7 @@ class DriverController {
         .json({ message: "Failed to delete driver", error: error.message });
     }
   }
-  // New method to get driver by vehicleId
+
   static async getDriverByVehicleId(req, res) {
     try {
       const { vehicleId } = req.params;

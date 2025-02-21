@@ -1,0 +1,45 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "festokabano@gmail.com",
+    "password": "DefaultPass123@"
+}
+### Get all fuel transactions
+GET http://localhost:5000/api/fuel-transactions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
+
+### Get a specific fuel transaction by ID
+GET http://localhost:5000/api/fuel-transactions/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
+
+### Get transactions for a vehicle by plate number
+GET http://localhost:5000/api/fuel-transactions/vehicle/RAF 660B
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
+
+### Get transactions recorded by a specific station worker (user with role 'station')
+GET http://localhost:5000/api/fuel-transactions/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
+
+### Record a new fuel transaction (remove total_cost)
+POST http://localhost:5000/api/fuel-transactions/record
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJzdGF0aW9uX3dvcmtlciIsImlhdCI6MTc0MDAwNDAyNSwiZXhwIjoxNzQwMDA1ODI1fQ.wt-NgCBQnDcUajtrGUB1mR87QfmQHo8cshZDsjcIB9w
+
+{
+  "stationId": 1,
+  "vehiclePlateNumber": "RAF 660B",
+  "driverId": 1,
+  "fuel_type": "petrol",
+  "total_litres": 200.8
+}
+
+
+### Delete a fuel transaction
+DELETE http://localhost:5000/api/fuel-transactions/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ1Njc5LCJleHAiOjE3Mzk1NDc0Nzl9.5g6vs7ssN2KdCu_LNIbl8EE9cck_K2fsMY1tRTRAM3g
+
+###
+// get fuel ttransactions done by a specific station worker
+GET http://localhost:5000/api/fuel-transactions/28
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJzdGF0aW9uX3dvcmtlciIsImlhdCI6MTczOTk4NzUwNSwiZXhwIjoxNzM5OTg5MzA1fQ.aBW_v2zQLu3MNCijR53fp5H12CxxVu-jTuq3pt3Ol0Y

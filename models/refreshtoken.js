@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Vehicle extends Model {
+  class RefreshToken extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,27 +11,22 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Vehicle.init(
+  RefreshToken.init(
     {
-      plateNumber: DataTypes.STRING,
-      model: DataTypes.STRING,
-      fuelType: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
+      token: DataTypes.STRING,
+      expiresAt: DataTypes.DATE,
     },
     {
       sequelize,
-      modelName: "Vehicle",
+      modelName: "RefreshToken",
     }
   );
-  Vehicle.associate = (models) => {
-    Vehicle.hasOne(models.Driver, {
-      foreignKey: "vehicleId",
-      onDelete: "CASCADE",
-    });
-    Vehicle.hasMany(models.FuelTransaction, {
-      foreignKey: "vehicleId",
+  RefreshToken.associate = (models) => {
+    RefreshToken.belongsTo(models.User, {
+      foreignKey: "userId",
       onDelete: "CASCADE",
     });
   };
-
-  return Vehicle;
+  return RefreshToken;
 };

@@ -1,9 +1,9 @@
-// middleware/authMiddleware.js
 const { verifyToken } = require("../utils/jwtUtils");
 
 const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization;
+  console.log("Auth Middleware Invoked");
 
+  const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res
       .status(401)
@@ -11,14 +11,16 @@ const authMiddleware = (req, res, next) => {
   }
 
   const token = authHeader.split(" ")[1];
-
   try {
     const decoded = verifyToken(token);
+    console.log("Decoded Token:", decoded);
     req.user = decoded;
     next();
   } catch (error) {
+    console.error("Token Verification Failed:", error.message);
     res.status(403).json({ message: "Forbidden: Invalid or expired token" });
   }
 };
+
 
 module.exports = authMiddleware;

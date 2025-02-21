@@ -1,0 +1,84 @@
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA1MDQ2LCJleHAiOjE3Mzk2MDY4NDZ9.oBU2PUxPK_CQBn_k-jbgvMe1WoiKpoQ2-OCAHeEC4S4
+Content-Type: application/json
+
+{
+    "name": "Mugisha",
+    "email": "Mugisha@gmail.com",
+    "role": "admin"
+}
+
+### Login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "Mugisha@gmail.com",
+    "password": "DefaultPass123@"
+}
+
+### Get all users
+GET http://localhost:5000/api/users/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU5NTQ3LCJleHAiOjE3Mzk2NjEzNDd9.Q7mhIsl6baLRv3lBiGkX7Hb-KV9QrrQJlH0zD9h9BXc
+
+### Get user by ID
+GET http://localhost:5000/api/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5OTk5OTA2LCJleHAiOjE3NDAwMDE3MDZ9.hDYwBFyzZInU7Cf8DYKIrO29Va2OASoFttZvh5XQFgQ
+
+### Update user details
+PUT http://localhost:5000/api/users/update/20
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTg5MTUxMywiZXhwIjoxNzM5ODkzMzEzfQ.5bcXH9AMjeXKzhGJD_7KzKanaLMjrcl227sCTv5pxlg
+
+{
+    "name": "testuserupdated",
+    "email": "testuserupdated@gmail.com",
+    "role": "viewer"
+}
+
+### Delete user
+DELETE http://localhost:5000/api/users/delete/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA3NjQwLCJleHAiOjE3Mzk2MDk0NDB9.Lg0tceAI6Kn_yVXwsOp4PdCgAEIrpJmdwZrxBwg74eg
+### logout user
+DELETE http://localhost:5000/api/auth/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM5NjA5OTQ1LCJleHAiOjE3Mzk2MTA1NDV9._PaAqjLQjpCp4wwVZehiPdr5r32DoR5HeQpiUcDvNEQ"
+}
+
+###
+POST http://localhost:5000/api/auth/refresh-token
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM5NjEwMTYzLCJleHAiOjE3Mzk2MTA3NjN9.uBbppY9z5aC65xkIO3H7QSxQjpxrUsi3mC1L_jCuGV4"
+}
+
+### Change User Password
+PUT http://localhost:5000/api/auth/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTg5MTUxMywiZXhwIjoxNzM5ODkzMzEzfQ.5bcXH9AMjeXKzhGJD_7KzKanaLMjrcl227sCTv5pxlg
+
+{
+  "oldPassword": "DefaultPass123@",
+  "newPassword": "NewPass456@"
+}
+
+###
+POST http://localhost:5000/api/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "fabricenzamwitakuze1@gmail.com"
+}
+
+###
+POST http://localhost:5000/api/auth//reset-password?token=e1023d53ff118953fd0efb31fd57adfda65655797e196095b6055ab73a73e93f
+Content-Type: application/json
+
+{
+  //  "token": "PASTE_THE_TOKEN_HERE",
+  "newPassword": "NewStrongPassword234!"
+}

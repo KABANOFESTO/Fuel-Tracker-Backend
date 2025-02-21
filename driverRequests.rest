@@ -1,0 +1,51 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "Mugisha@gmail.com",
+    "password": "DefaultPass123@"
+}
+### Get all drivers
+GET http://localhost:5000/api/drivers/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
+
+
+### Get a single driver by ID
+GET http://localhost:5000/api/drivers/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
+
+### Get a single driver by vehicleId
+GET http://localhost:5000/api/drivers/vehicle/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMTM4NjAyLCJleHAiOjE3NDAxNDA0MDJ9.Ma2Rm-pA6hY3hRJdb_4kmUVOI94tzSn71ZbaUCZpTbw
+
+
+### Register a new driver
+POST http://localhost:5000/api/drivers/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDA3NTg0LCJleHAiOjE3NDAwMDkzODR9.8w9JVEz8hE4F7SJn_mfMrOWaZGYPJCDCgmNN6tOyLiE
+
+{
+  "name": "Mugisha",
+  "licenseNumber": "12000800861986890",
+  "vehicleId": 1,
+  "email":"Mugisha@gmail.com",
+  "phoneNumber":"0780857482"
+}
+
+
+### Update driver details
+PUT http://localhost:5000/api/drivers/update/1200080086198240
+Content-Type: application/json
+Authorization: Bearer 
+eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InN0YXRpb25fd29ya2VyIiwiaWF0IjoxNzM5NjU3NzUzLCJleHAiOjE3Mzk2NTk1NTN9.zXiUfYWxL37h-Ior79dW87jQvPMREKTPSZGiJNyGP9w
+
+{
+  "name": "N.mugisha",
+  "licenseNumber": "12000800861982",
+  "vehicleId": 1
+}
+
+
+### Delete a driver
+DELETE http://localhost:5000/api/drivers/delete/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI

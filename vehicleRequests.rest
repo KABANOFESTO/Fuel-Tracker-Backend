@@ -1,0 +1,53 @@
+### Login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "Mugisha@gmail.com",
+    "password": "DefaultPass123@"
+}
+
+### Get all vehicles
+GET http://localhost:5000/api/vehicles/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InZpZXdlciIsImlhdCI6MTczOTc4OTI2OSwiZXhwIjoxNzM5NzkxMDY5fQ.O6o8XzY8nE44WrLmlFA_Gdu2m07WQDW276gJONA3Dfc
+
+
+### Get a single vehicle by ID
+GET http://localhost:5000/api/vehicles/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5OTk5OTA2LCJleHAiOjE3NDAwMDE3MDZ9.hDYwBFyzZInU7Cf8DYKIrO29Va2OASoFttZvh5XQFgQ
+
+
+### Get vehicle details by plate number
+GET http://localhost:5000/api/vehicles/plate/RAF 660B
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
+
+
+
+### Register a new vehicle
+POST http://localhost:5000/api/vehicles/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDQzMTU2LCJleHAiOjE3NDAwNDQ5NTZ9.BQwssMTaD9DpEgGXyON57YtiUe0rXwjcFRJjgU8IwVM
+
+{
+  "plateNumber": "RAF 660B",
+  "model": "Toyota Corolla",
+  "fuelType": "Petrol"
+}
+
+
+### Update vehicle details
+PUT http://localhost:5000/api/vehicles/update/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMTI5OTAwLCJleHAiOjE3NDAxMzE3MDB9.qS7iJMBRcaczprKhyWa3zIELAnQZxc_pIRQjHCcvlEg
+
+{
+  "plateNumber": "RAF 660B",
+  
+  "fuelType": "petrol"
+}
+
+
+### Delete a vehicle
+DELETE http://localhost:5000/api/vehicles/delete/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTIyNjYxLCJleHAiOjE3Mzk1MjQ0NjF9.scvWL_63SlFGdfFeYaT47HX_3i0P938t7uukWt8D_zI
+

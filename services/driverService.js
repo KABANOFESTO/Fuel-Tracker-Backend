@@ -4,7 +4,7 @@ class DriverService {
   static async getAllDrivers() {
     return await DriverRepository.getAllDrivers();
   }
-
+  // get by id
   static async getDriverById(id) {
     return await DriverRepository.getDriverById(id);
   }

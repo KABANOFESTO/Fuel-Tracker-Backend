@@ -22,14 +22,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6I
 ### Register a new driver
 POST http://localhost:5000/api/drivers/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDA3NTg0LCJleHAiOjE3NDAwMDkzODR9.8w9JVEz8hE4F7SJn_mfMrOWaZGYPJCDCgmNN6tOyLiE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMzAwMTQyLCJleHAiOjE3NDAzMDE5NDJ9.TjKFbcn7OTJiEQTvGWtpVeNtTkepBDsS6yztL4isrNM
 
 {
-  "name": "Mugisha",
-  "licenseNumber": "12000800861986890",
-  "vehicleId": 1,
-  "email":"Mugisha@gmail.com",
-  "phoneNumber":"0780857482"
+  "name": "Driver2",
+  "licenseNumber": "12000800861986123",
+  "vehicleId": 4,
+  "email":"Driver2@gmail.com",
+  "phoneNumber":"0780857712"
 }
 
 

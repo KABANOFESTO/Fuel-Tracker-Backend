@@ -18,6 +18,24 @@ class FuelTransactionService {
   }
 
   static async getTransactionsByVehicle(plateNumber) {
+    // Fetch the vehicle using the plate number
+    const vehicle = await VehicleRepository.getVehicleByPlate(plateNumber);
+    if (!vehicle) {
+      throw new Error("Vehicle not found.");
+    }
+
+    // Extract vehicleId
+    const vehicleId = vehicle.id;
+
+    // Fetch the driver using vehicleId
+    const driver = await DriverRepository.getDriverByVehicleId(vehicleId);
+    if (!driver) {
+      throw new Error(
+        "This vehicle is not assigned to any driver, hence it can't be refueled."
+      );
+    }
+
+    // Proceed with fetching transactions
     return await FuelTransactionRepository.getTransactionsByVehicle(
       plateNumber
     );
@@ -63,6 +81,31 @@ class FuelTransactionService {
         throw new Error("Driver not found");
       }
 
+      // Fetch vehicleId from vehicleExists
+      const vehicleId = vehicleExists.id;
+
+      // Check if the vehicle was refueled within the last 24 hours
+      const recentTransactions =
+        await FuelTransactionRepository.getTransactionsByVehicle(
+          data.vehiclePlateNumber
+        );
+
+      const now = new Date();
+      const last24Hours = new Date(now.getTime() - 24 * 60 * 60 * 1000); // Subtract 24 hours
+
+      const hasRecentTransaction = recentTransactions.some(
+        (transaction) => new Date(transaction.createdAt) > last24Hours
+      );
+
+      if (hasRecentTransaction) {
+        logger.warn(
+          `Transaction denied: Vehicle PlateNumber ${data.vehiclePlateNumber} has been refueled within the last 24 hours.`
+        );
+        throw new Error(
+          "This vehicle has already been refueled. Please wait for the next day."
+        );
+      }
+
       const fuelPrice = await FuelPriceRepository.getFuelPriceByTypeAndStation(
         data.fuel_type,
         data.stationId
@@ -75,9 +118,6 @@ class FuelTransactionService {
       }
 
       const totalPrice = data.total_litres * fuelPrice.price;
-
-      // Fetch vehicleId from vehicleExists
-      const vehicleId = vehicleExists.id;
 
       const transactionData = {
         stationId: data.stationId,

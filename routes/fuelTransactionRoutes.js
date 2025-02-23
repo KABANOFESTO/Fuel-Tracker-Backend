@@ -4,6 +4,8 @@ const FuelTransactionController = require("../controllers/FuelTransactionControl
 const authMiddleware = require("../middlewares/authMiddleware");
 // Get all fuel transactions
 router.get("/", FuelTransactionController.getAllTransactions);
+// Get all recent fuel transactions (last 24 hours)
+router.get("/recent", FuelTransactionController.getRecentTransactions);
 
 // Get a specific fuel transaction by ID
 router.get("/:id", FuelTransactionController.getTransactionById);

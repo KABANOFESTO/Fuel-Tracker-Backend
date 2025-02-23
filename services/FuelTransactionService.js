@@ -9,13 +9,18 @@ class FuelTransactionService {
   static getAllTransactions() {
     return FuelTransactionRepository.getAllTransactions();
   }
+  static getRecentTransactions() {
+    return FuelTransactionRepository.getRecentTransactions();
+  }
 
   static getTransactionById(id) {
     return FuelTransactionRepository.getTransactionById(id);
   }
 
   static async getTransactionsByVehicle(plateNumber) {
-    return await FuelTransactionRepository.getTransactionsByVehicle(plateNumber);
+    return await FuelTransactionRepository.getTransactionsByVehicle(
+      plateNumber
+    );
   }
 
   static getTransactionsByUser(userId) {

@@ -16,6 +16,18 @@ class FuelTransactionRepository {
     });
   }
 
+  static getRecentTransactions() {
+    const twentyFourHoursAgo = new Date();
+    twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+
+    return FuelTransaction.findAll({
+      where: {
+        createdAt: {
+          [Op.gte]: twentyFourHoursAgo,
+        },
+      },
+    });
+  }
   static async getTransactionById(id) {
     return await FuelTransaction.findByPk(id, {
       include: [Vehicle, User, Driver, Station],

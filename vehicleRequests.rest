@@ -18,7 +18,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6I
 
 
 ### Get vehicle details by plate number
-GET http://localhost:5000/api/vehicles/plate/RAF 660B
+GET http://localhost:5000/api/vehicles/plate/RAF 660P
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYxMzg1NCwiZXhwIjoxNzM5NjE1NjU0fQ.N5mdKLdOxcENSnPoacnCuJguJbOGsLZJ9eXQn3XUEaI
 
 
@@ -26,12 +26,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 ### Register a new vehicle
 POST http://localhost:5000/api/vehicles/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDQzMTU2LCJleHAiOjE3NDAwNDQ5NTZ9.BQwssMTaD9DpEgGXyON57YtiUe0rXwjcFRJjgU8IwVM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMzAwNDI3LCJleHAiOjE3NDAzMDIyMjd9.tMOOdhgUQ6QLqdJsVVEDvB1tb_TpisYq-Q22Zrlfcwg
 
 {
-  "plateNumber": "RAF 660B",
+  "plateNumber": "RAF 660I",
   "model": "Toyota Corolla",
-  "fuelType": "Petrol"
+  "fuelType": "petrol"
 }
 
 

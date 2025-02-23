@@ -12,6 +12,17 @@ class FuelTransactionController {
       res.status(500).json({ error: error.message });
     }
   }
+  static async getRecentTransactions(req, res) {
+    try {
+      const recentTransactions =
+        await FuelTransactionService.getRecentTransactions();
+      logger.info("Fetched recent transactions successfully.");
+      res.status(200).json(recentTransactions);
+    } catch (error) {
+      logger.error(`Failed to fetch recent transactions: ${error.message}`);
+      res.status(500).json({ error: error.message });
+    }
+  }
 
   static async getTransactionById(req, res) {
     try {

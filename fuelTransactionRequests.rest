@@ -2,12 +2,17 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "festokabano@gmail.com",
+    "email": "Mugisha@gmail.com",
     "password": "DefaultPass123@"
 }
 ### Get all fuel transactions
 GET http://localhost:5000/api/fuel-transactions
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NTQ0OTYxLCJleHAiOjE3Mzk1NDY3NjF9.WvfQAx0Re4vj58pahbKJw_YV_yH6HDKR7KLU4OL8L_E
+
+###
+// get the recent transactions only
+GET http://localhost:5000/api/fuel-transactions/recent
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMjk2MDE4LCJleHAiOjE3NDAyOTc4MTh9.yi34la3F4Mr92dX4FDKiazeQf8cGPsI6zxM6hcfS-8I
 
 ### Get a specific fuel transaction by ID
 GET http://localhost:5000/api/fuel-transactions/7
@@ -24,7 +29,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6I
 ### Record a new fuel transaction (remove total_cost)
 POST http://localhost:5000/api/fuel-transactions/record
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJzdGF0aW9uX3dvcmtlciIsImlhdCI6MTc0MDAwNDAyNSwiZXhwIjoxNzQwMDA1ODI1fQ.wt-NgCBQnDcUajtrGUB1mR87QfmQHo8cshZDsjcIB9w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMjk2MDE4LCJleHAiOjE3NDAyOTc4MTh9.yi34la3F4Mr92dX4FDKiazeQf8cGPsI6zxM6hcfS-8I
 
 {
   "stationId": 1,

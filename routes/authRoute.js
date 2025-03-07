@@ -7,6 +7,7 @@ const upload = require("../middlewares/upload");
 
 router.post(
   "/register",
+  authMiddleware,
   (req, res, next) => {
     console.log("Headers:", req.headers);
     console.log("Body:", req.body);

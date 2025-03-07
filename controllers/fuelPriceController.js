@@ -111,9 +111,9 @@ exports.getFuelPriceByStationId = async (req, res) => {
     }
 
     // Extract only the fuel prices
-    const prices = fuelPrices.map((fuel) => fuel.price);
+    // const prices = fuelPrices.map((fuel) => fuel.price);
 
-    return res.status(200).json(prices);
+    return res.status(200).json(fuelPrices);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal server error" });

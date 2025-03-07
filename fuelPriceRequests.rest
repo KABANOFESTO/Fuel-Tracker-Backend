@@ -12,34 +12,34 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 
 
 ### Get fuel prices for a specific station
-GET http://localhost:5000/api/fuel-prices/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
+GET http://localhost:5000/api/fuel-prices/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQxMzUwNDcyLCJleHAiOjE3NDEzNTIyNzJ9.UC1gHq-kiiH9UPn33w1lR0FIZxwavONqMeHgCC3iihQ
 
 
 ### Set fuel price for a station
 POST http://localhost:5000/api/fuel-prices/setPrice
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQxMzQ3ODQwLCJleHAiOjE3NDEzNDk2NDB9.Eye-MqFBiUEmYzI4VxUYgajdnFlbFE7QGhc6u8tw0u4
 
 {
   "stationId": 1,
   "fuelType": "petrol",
-  "price": 1500
+  "price": 1800
 }
 ### Get fuel prices for a specific station
 GET http://localhost:5000/api/fuel-prices/getfuelprice?stationId=1&fuelType=petrol
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwMDg1NjEyLCJleHAiOjE3NDAwODc0MTJ9.Mp8LJHEXZMRbF7J12dmr5_sJ0x5PGDR9e5CD8M1DGfs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQxMzQ3ODQwLCJleHAiOjE3NDEzNDk2NDB9.Eye-MqFBiUEmYzI4VxUYgajdnFlbFE7QGhc6u8tw0u4
 
 
 
 ### Update fuel price
-PUT http://localhost:5000/api/fuel-prices/update/3
+PUT http://localhost:5000/api/fuel-prices/update/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTYzMjU5NywiZXhwIjoxNzM5NjM0Mzk3fQ.GH9e2Os-2BQJfzyRCY7bkFHRs6IkUE15a-D7ua1iIs0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQxMzQ3ODQwLCJleHAiOjE3NDEzNDk2NDB9.Eye-MqFBiUEmYzI4VxUYgajdnFlbFE7QGhc6u8tw0u4
 
 {
-  "fuelType": "Diesel",
+  "fuelType": "petrol",
   "price": 2000
 }
 
@@ -50,4 +50,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiO
 
 ### Get fuel price by stationId
 GET http://localhost:5000/api/fuel-prices/station/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5Nzg4NDE1LCJleHAiOjE3Mzk3OTAyMTV9.CBiEshozUlcdvzpGuiL2ge8a0crM2m7uL0kGED4ypp0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQxMzUwNDcyLCJleHAiOjE3NDEzNTIyNzJ9.UC1gHq-kiiH9UPn33w1lR0FIZxwavONqMeHgCC3iihQ

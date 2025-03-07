@@ -1,11 +1,11 @@
 ### Register a new user
 POST http://localhost:5000/api/auth/register
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM5NjA1MDQ2LCJleHAiOjE3Mzk2MDY4NDZ9.oBU2PUxPK_CQBn_k-jbgvMe1WoiKpoQ2-OCAHeEC4S4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQxMTgzODE5LCJleHAiOjE3NDExODU2MTl9.58bW49UGrlBrmsrIbMDq6iY-h9zv5dJsuHY7RMENzkI
 Content-Type: application/json
 
 {
-    "name": "Mugisha",
-    "email": "Mugisha@gmail.com",
+    "name": "Fab1",
+    "email": "fab1@gmail.com",
     "role": "admin"
 }
 
